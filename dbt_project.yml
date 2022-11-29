@@ -7,6 +7,7 @@ vars:
   amazon_ads_source:
     ad_group_history: "{{ source('amazon_ads','ad_group_history') }}"
     ad_group_level_report: "{{ source('amazon_ads','ad_group_level_report') }}"
+    amazon_ads_advertised_product_report: "{{ source('amazon_ads','amazon_ads_advertised_product_report') }}"
     campaign_history: "{{ source('amazon_ads','campaign_history') }}"
     campaign_level_report: "{{ source('amazon_ads','campaign_level_report') }}"
     portfolio_history: "{{ source('amazon_ads','portfolio_history') }}"
@@ -16,7 +17,6 @@ vars:
     negative_keyword_history: "{{ source('amazon_ads','negative_keyword_history') }}"
     targeting_keyword_report: "{{ source('amazon_ads','targeting_keyword_report') }}"
     search_term_targeting_report: "{{ source('amazon_ads','search_term_targeting_report') }}"
-    targeting_report: "{{ source('amazon_ads','targeting_report') }}"
 
 models:
   amazon_ads_source:
