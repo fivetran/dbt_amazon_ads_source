@@ -1,0 +1,52 @@
+config-version: 2
+
+name: 'amazon_ads_source'
+version: '0.1.0'
+
+profile: 'integration_tests' 
+
+vars:
+  amazon_ads_source:
+    amazon_ads_schema: amazon_ads_source_integration_tests
+    amazon_ads_ad_group_history_identifier: "ad_group_history"
+    amazon_ads_ad_group_level_report_identifier: "ad_group_level_report"
+    amazon_ads_campaign_history_identifier: "campaign_history"
+    amazon_ads_campaign_level_report_identifier: "campaign_level_report"
+    amazon_ads_portfolio_history_identifier: "portfolio_history"
+    amazon_ads_product_ad_history_identifier: "product_ad_history"
+    amazon_ads_product_ad_serving_status_detail_identifier: "product_ad_serving_status_detail"
+    amazon_ads_keyword_history_identifier: "keyword_history"
+    amazon_ads_negative_keyword_history_identifier: "negative_keyword_history"
+    amazon_ads_targeting_keyword_report_identifier: "targeting_keyword_report"
+    amazon_ads_search_term_targeting_report_identifier: "search_term_targeting_report"
+    amazon_ads_targeting_report_identifier: "targeting_report"
+
+models:
+  amazon_ads_source:
+    tmp:
+      +materialized: view
+    +materialized: table
+    +schema: amazon_ads_source
+
+seeds:
+  +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+  # amazon_ads_source_integration_tests:
+  #   +column_types:
+  #     _fivetran_synced: timestamp
+  #   ad_group_history_data: 
+  #     +column_types:
+  #       modification_time: timestamp
+  #       start_time: timestamp
+  #       end_time: timestamp
+  #   campaign_history_data:
+  #     +column_types:
+  #       modification_time: timestamp
+  #       start_time: timestamp
+  #       end_time: timestamp
+  #   keyword_history_data:
+  #     +column_types:
+  #       modification_time: timestamp
+        
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
