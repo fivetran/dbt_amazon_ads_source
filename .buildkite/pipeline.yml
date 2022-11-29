@@ -41,4 +41,4 @@ steps:
             - "CI_REDSHIFT_DBT_PASS"
             - "CI_REDSHIFT_DBT_USER"
     commands: |
-      bash .buildkite/scripts/run_models.sh redshift
+      bash .buildkite/scripts/run_models.sh redshift 

@@ -1,5 +1,5 @@
 
 target/
-dbt_modules/
+dbt_modules/ 
 logs/
 .DS_Store
