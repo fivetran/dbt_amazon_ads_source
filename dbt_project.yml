@@ -1,38 +1,26 @@
-
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'dbt_amazon_ads_source'
-version: '1.0.0'
+name: 'amazon_ads_source'
+version: '0.1.0'
 config-version: 2
+require-dbt-version: [">=1.0.0", "<2.0.0"]
 
-# This setting configures which "profile" dbt uses for this project.
-profile: 'dbt_amazon_ads_source'
+vars:
+  amazon_ads_source:
+    ad_group_history: "{{ source('amazon_ads','ad_group_history') }}"
+    ad_group_level_report: "{{ source('amazon_ads','ad_group_level_report') }}"
+    campaign_history: "{{ source('amazon_ads','campaign_history') }}"
+    campaign_level_report: "{{ source('amazon_ads','campaign_level_report') }}"
+    portfolio_history: "{{ source('amazon_ads','portfolio_history') }}"
+    product_ad_history: "{{ source('amazon_ads','product_ad_history') }}"
+    product_ad_serving_status_detail: "{{ source('amazon_ads','product_ad_serving_status_detail') }}"
+    keyword_history: "{{ source('amazon_ads','keyword_history') }}"
+    negative_keyword_history: "{{ source('amazon_ads','negative_keyword_history') }}"
+    targeting_keyword_report: "{{ source('amazon_ads','targeting_keyword_report') }}"
+    search_term_targeting_report: "{{ source('amazon_ads','search_term_targeting_report') }}"
+    targeting_report: "{{ source('amazon_ads','targeting_report') }}"
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-target-path: "target"  # directory which will store compiled SQL files
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
-
-
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/ directory
-# as tables. These settings can be overridden in the individual model files
-# using the `{{ config(...) }}` macro.
 models:
-  dbt_amazon_ads_source:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+  amazon_ads_source:
+    tmp:
       +materialized: view
+    +materialized: table
+    +schema: amazon_ads_source
