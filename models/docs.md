@@ -6,10 +6,6 @@ Unique ID used by Fivetran to sync and dedupe data.
 Timestamp of when a record was last synced.
 {% enddocs %}
 
-{% docs account_descriptive_name %}
-The descriptive name of the Customer account.
-{% enddocs %}
-
 {% docs ad_group_id %}
 The ID of the AdGroup.
 {% enddocs %}
@@ -18,131 +14,74 @@ The ID of the AdGroup.
 The name of the AdGroup.
 {% enddocs %}
 
-{% docs ad_group_status %}
-Status of the ad group.
+{% docs ad_id %}
+The ID of the Ad.
 {% enddocs %}
 
 {% docs campaign_id %}
 The ID of the Campaign.
 {% enddocs %}
 
-{% docs ad_id %}
-The ID of the Ad.
-{% enddocs %}
-
-{% docs account_id %}
-The ID of the Account.
-{% enddocs %}
-
-
-{% docs ad_status %}
-Status of the Ad.
-{% enddocs %}
-
 {% docs campaign_name %}
 The name of the Campaign.
 {% enddocs %}
 
-{% docs campaign_status %}
-Status of the Campaign.
-{% enddocs %}
-
 {% docs clicks %}
-The number of clicks.
+Total number of ad clicks.
 {% enddocs %}
 
 {% docs cost %}
-The sum of your cost-per-click (CPC) and cost-per-thousand impressions (CPM) costs during this period.
+Total cost of ad clicks.
 {% enddocs %}
 
-{% docs date %}
-The date being reported on.
+{% docs creation_date %}
+The date of creation of the record.
 {% enddocs %}
 
-{% docs effective_final_url %}
-Effective final URL of the impressions.
-{% enddocs %}
-
-{% docs external_customer_id %}
-The Customer ID.
+{% docs default_bid %}
+The date of creation of the record.
 {% enddocs %}
 
 {% docs impressions %}
-Count of how often your ad has appeared on a search results page or website on the Amazon Network.
+Total number of ad impressions.
 {% enddocs %}
 
-{% docs criteria_id %}
-The Criterion ID.
+{% docs keyword_id %}
+The ID of the keyword.
 {% enddocs %}
 
-{% docs gcl_id %}
-The Amazon Click ID.
-{% enddocs %}
-
-{% docs criteria %}
-Descriptive string for the Criterion.
-{% enddocs %}
-
-{% docs criteria_destination_url %}
-Destination URL of the criterion that triggered ads.
-{% enddocs %}
-
-{% docs criteria_type %}
-The type of the Criterion.
-{% enddocs %}
-
-{% docs base_url %}
-The base URL of the ad, extracted from the `final_urls`.
-{% enddocs %}
-
-{% docs url_host %}
-The URL host of the ad, extracted from the `final_urls`.
-{% enddocs %}
-
-{% docs url_path %}
-The URL path of the ad, extracted from the `final_urls`.
-{% enddocs %}
-
-{% docs utm_source %}
-The utm_source parameter of the ad, extracted from the `final_urls`.
-{% enddocs %}
-
-{% docs utm_medium %}
-The utm_medium parameter of the ad, extracted from the `final_urls`.
-{% enddocs %}
-
-{% docs utm_campaign %}
-The utm_campaign parameter of the ad, extracted from the `final_urls`.
-{% enddocs %}
-
-{% docs utm_content %}
-The utm_content parameter of the ad, extracted from the `final_urls`.
-{% enddocs %}
-
-{% docs utm_term %}
-The utm_term parameter of the ad, extracted from the `final_urls`.
+{% docs keyword_match_type %}
+One of (broad, exact, or phrase.)
 {% enddocs %}
 
 {% docs last_update_date %}
-Timestamp of when the record was last updated in Amazon Ads.
+Date of last update to record.
 {% enddocs %}
 
-{% docs ad_type %}
-The type of the ad in Amazon Ads.
+{% docs negative_keyword_id %}
+The ID of the negative keyword.
 {% enddocs %}
 
-{% docs ad_group_type %}
-The type of the ad group in Amazon Ads.
+{% docs portfolio_id %}
+The ID of the Portfolio.
 {% enddocs %}
 
-{% docs is_most_recent_record %}
-Boolean representing whether the record is the most recent version of the object.
+{% docs portfolio_name %}
+The name of the Portfolio.
 {% enddocs %}
 
-{% docs ad_network_type %}
-The Amazon Ad network type used across the account.
+{% docs report_date %}
+The date of the report.
 {% enddocs %}
 
-{% docs device %}
-Account ad performance per unique device where the ads were served.
+{% docs search_term %}
+The search term used by the customer.
+{% enddocs %}
+
+{% docs serving_status %}
+The current serving status of the record.
+{% enddocs %}
+
+{% docs state %}
+The state of the record (enabled, paused, or archived).
 {% enddocs %}
