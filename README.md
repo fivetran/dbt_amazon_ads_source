@@ -16,7 +16,6 @@
 # 📣 What does this dbt package do?
 - Materializes [Amazon_ads staging tables](https://fivetran.github.io/dbt_amazon_ads_source/#!/overview/amazon_ads_source/models/?g_v=1&g_e=seeds), which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/amazon-ads#schemainformation). These staging tables clean, test, and prepare your Amazon Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/amazon-ads) for analysis by doing the following:
   - Names columns for consistency across all packages and for easier analysis
-  - Removes any rows that are soft-deleted
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Amazon Ads data through the [dbt docs site](https://fivetran.github.io/dbt_amazon_ads_source/).
@@ -43,12 +42,34 @@ By default, this package runs using your destination and the `amazon_ads` schema
 
 ```yml
 vars:
-  amazon_ads_source:
-    amazon_ads_database: your_database_name
-    amazon_ads_schema: your_schema_name 
+  amazon_ads_database: your_database_name
+  amazon_ads_schema: your_schema_name 
 ```
 ## (Optional) Step 4: Additional configurations
 <details><summary>Expand for configurations</summary>
+
+### Passing Through Additional Metrics
+By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables:
+
+>**Note** Please ensure you exercised due diligence when adding metrics to these models. The metrics added by default (clicks, impressions, and spend) have been vetted by the Fivetran team maintaining this package for accuracy. There are metrics included within the source reports, for example metric averages, which may be inaccurately represented at the grain for reports created in this package. You will want to ensure whichever metrics you pass through are indeed appropriate to aggregate at the respective reporting levels provided in this package.
+
+```yml
+vars:
+    amazon_ads__campaign_passthrough_metrics: 
+      - name: "new_custom_field"
+        alias: "custom_field"
+    amazon_ads__ad_group_passthrough_metrics:
+      - name: "unique_string_field"
+        alias: "field_id"
+    amazon_ads__advertised_product_passthrough_metrics: 
+      - name: "new_custom_field"
+        alias: "custom_field"
+      - name: "a_second_field"
+    amazon_ads__keyword_passthrough_metrics:
+      - name: "this_field"
+    amazon_ads__search_term_passthrough_metrics:
+      - name: "unique_string_field"
+        alias: "field_id"
 
 ### Changing the Build Schema
 By default this package will build the Amazon_ads staging models within a schema titled (<target_schema> + `amazon_ads_source`) in your destination. If this is not where you would like your Amazon Ads staging data to be written, add the following configuration to your root `dbt_project.yml` file:

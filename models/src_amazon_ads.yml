@@ -20,7 +20,7 @@ sources:
         identifier: "{{ var('amazon_ads_ad_group_history_identifier', 'ad_group_history') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: id
             description: "{{ doc('ad_group_id') }}"
           - name: name
@@ -39,11 +39,11 @@ sources:
             description: "{{ doc('state') }}"
 
       - name: ad_group_level_report
-        description: Campaign reports contain performance data broken down at the ad group and campaign level. 
+        description: Each record in this table represents the daily performance by Amazon ad group. 
         identifier: "{{ var('amazon_ads_ad_group_level_report_identifier', 'ad_group_level_report') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: date
             description: "{{ doc('report_date') }}"
           - name: ad_group_id
@@ -62,7 +62,7 @@ sources:
         identifier: "{{ var('amazon_ads_advertised_product_report_identifier', 'advertised_product_report') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: date
             description: "{{ doc('report_date') }}"
           - name: ad_id
@@ -83,7 +83,7 @@ sources:
         identifier: "{{ var('amazon_ads_campaign_history_identifier', 'campaign_history') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: id
             description: "{{ doc('campaign_id') }}"
           - name: name
@@ -116,11 +116,11 @@ sources:
             description: The type of targeting used for the campaign, either manual or auto.
 
       - name: campaign_level_report
-        description: Campaign reports contain performance data broken down at the campaign level. 
+        description: Each record in this table represents the daily performance by Amazon campaign.
         identifier: "{{ var('amazon_ads_campaign_level_report_identifier', 'campaign_level_report') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: date
             description: "{{ doc('report_date') }}"
           - name: campaign_id
@@ -137,7 +137,7 @@ sources:
         identifier: "{{ var('amazon_ads_keyword_history_identifier', 'keyword_history') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: id
             description: "{{ doc('keyword_id') }}"
           - name: last_update_date
@@ -164,7 +164,7 @@ sources:
         identifier: "{{ var('amazon_ads_negative_keyword_history_identifier', 'negative_keyword_history') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: id
             description: "{{ doc('negative_keyword_id') }}"
           - name: last_update_date
@@ -189,7 +189,7 @@ sources:
         identifier: "{{ var('amazon_ads_portfolio_history_identifier', 'portfolio_history') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: id
             description: "{{ doc('portfolio_id') }}"
           - name: name
@@ -220,7 +220,7 @@ sources:
         identifier: "{{ var('amazon_ads_product_ad_history_identifier', 'product_ad_history') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: ad_id
             description: "{{ doc('ad_id') }}"
           - name: last_update_date
@@ -230,7 +230,7 @@ sources:
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
           - name: asin
-            description: The ASIN associated with the ad.
+            description: The Amazon Standard Identification Number (ASIN) associated with the ad.
           - name: creation_date
             description: "{{ doc('creation_date') }}"            
           - name: sku
@@ -245,7 +245,7 @@ sources:
         identifier: "{{ var('amazon_ads_targeting_keyword_report_identifier', 'targeting_keyword_report') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: date
             description: "{{ doc('report_date') }}"
           - name: ad_group_id
@@ -266,7 +266,7 @@ sources:
         identifier: "{{ var('amazon_ads_search_term_ad_keyword_report_identifier', 'search_term_ad_keyword_report') }}"
         columns:
           - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"\n
+            description: "{{ doc('_fivetran_synced') }}"
           - name: date
             description: "{{ doc('report_date') }}"
           - name: ad_group_id
