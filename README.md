@@ -55,22 +55,22 @@ By default, this package will select `clicks`, `impressions`, and `cost` from th
 
 ```yml
 vars:
-    amazon_ads__campaign_passthrough_metrics: 
+    amazon_ads__campaign_passthrough_metrics:  
       - name: "new_custom_field"
         alias: "custom_field"
-    amazon_ads__ad_group_passthrough_metrics:
+    amazon_ads__ad_group_passthrough_metrics: 
       - name: "unique_string_field"
         alias: "field_id"
-    amazon_ads__advertised_product_passthrough_metrics: 
+    amazon_ads__advertised_product_passthrough_metrics:  
       - name: "new_custom_field"
         alias: "custom_field"
       - name: "a_second_field"
-    amazon_ads__keyword_passthrough_metrics:
+    amazon_ads__keyword_passthrough_metrics: 
       - name: "this_field"
-    amazon_ads__search_term_passthrough_metrics:
+    amazon_ads__search_term_passthrough_metrics: 
       - name: "unique_string_field"
         alias: "field_id"
-
+```
 ### Changing the Build Schema
 By default this package will build the Amazon_ads staging models within a schema titled (<target_schema> + `amazon_ads_source`) in your destination. If this is not where you would like your Amazon Ads staging data to be written, add the following configuration to your root `dbt_project.yml` file:
 

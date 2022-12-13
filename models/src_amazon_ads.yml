@@ -163,7 +163,7 @@ sources:
           - name: state
             description: "{{ doc('state') }}"
 
-      - name: portfolio_history
+      - name: portfolio_history 
         description: Each record represents a portfolio in Amazon Ads.
         identifier: "{{ var('amazon_ads_portfolio_history_identifier', 'portfolio_history') }}"
         columns:
@@ -219,8 +219,8 @@ sources:
           - name: state
             description: "{{ doc('state') }}"
 
-      - name: targeting_keyword_report
-        description: Targeting reports contain performance metrics broken down by both targeting expressions and keywords.
+      - name: targeting_keyword_report 
+        description: Targeting reports contain performance metrics broken down by both targeting expressions and keywords. 
         identifier: "{{ var('amazon_ads_targeting_keyword_report_identifier', 'targeting_keyword_report') }}"
         columns:
           - name: _fivetran_synced
@@ -240,7 +240,7 @@ sources:
           - name: cost
             description: "{{ doc('cost') }}"
 
-      - name: search_term_ad_keyword_report
+      - name: search_term_ad_keyword_report 
         description: Search term reports contain search term performance metrics broken down by targeting expressions and keywords. 
         identifier: "{{ var('amazon_ads_search_term_ad_keyword_report_identifier', 'search_term_ad_keyword_report') }}"
         columns:

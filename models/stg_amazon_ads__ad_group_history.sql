@@ -21,12 +21,12 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
+        _fivetran_synced, 
         campaign_id,
         creation_date,
         default_bid,
         id as ad_group_id,
-        last_updated_date,
+        last_updated_date, 
         name as ad_group_name,
         serving_status,
         state
