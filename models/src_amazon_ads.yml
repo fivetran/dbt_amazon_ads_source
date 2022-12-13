@@ -159,31 +159,6 @@ sources:
           - name: state
             description: "{{ doc('state') }}"
 
-      - name: negative_keyword_history
-        description: Each record represents a negative keyword in Amazon Ads.
-        identifier: "{{ var('amazon_ads_negative_keyword_history_identifier', 'negative_keyword_history') }}"
-        columns:
-          - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"
-          - name: id
-            description: "{{ doc('negative_keyword_id') }}"
-          - name: last_update_date
-            description: "{{ doc('last_update_date') }}"
-          - name: ad_group_id
-            description: "{{ doc('ad_group_id') }}"
-          - name: campaign_id
-            description: "{{ doc('campaign_id') }}"
-          - name: creation_date
-            description: "{{ doc('creation_date') }}"            
-          - name: keyword_text
-            description: The exact text for the keyword.
-          - name: keyword_match_type
-            description: "{{ doc('keyword_match_type') }}"
-          - name: serving_status
-            description: "{{ doc('serving_status') }}"
-          - name: state
-            description: "{{ doc('state') }}"
-
       - name: portfolio_history
         description: Each record represents a portfolio in Amazon Ads.
         identifier: "{{ var('amazon_ads_portfolio_history_identifier', 'portfolio_history') }}"

@@ -40,7 +40,7 @@ models:
             - date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: date
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
@@ -65,7 +65,7 @@ models:
             - date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: date
         description: "{{ doc('report_date') }}"
       - name: ad_id
@@ -92,7 +92,7 @@ models:
             - last_update_date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
         tests:
@@ -135,7 +135,7 @@ models:
             - date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: date
         description: "{{ doc('report_date') }}"
       - name: campaign_id
@@ -158,7 +158,7 @@ models:
             - last_update_date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: keyword_id
         description: "{{ doc('keyword_id') }}"
         tests:
@@ -182,37 +182,6 @@ models:
       - name: state
         description: "{{ doc('state') }}"
 
-  - name: stg_amazon_ads__negative_keyword_history
-    description: Each record represents a negative keyword in Amazon Ads.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - negative_keyword_id
-            - last_update_date
-    columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
-      - name: negative_keyword_id
-        description: "{{ doc('negative_keyword_id') }}"
-        tests:
-          - not_null
-      - name: last_update_date
-        description: "{{ doc('last_update_date') }}"
-      - name: ad_group_id
-        description: "{{ doc('ad_group_id') }}"
-      - name: campaign_id
-        description: "{{ doc('campaign_id') }}"
-      - name: creation_date
-        description: "{{ doc('creation_date') }}"            
-      - name: keyword_text
-        description: The exact text for the keyword.
-      - name: keyword_match_type
-        description: "{{ doc('keyword_match_type') }}"
-      - name: serving_status
-        description: "{{ doc('serving_status') }}"
-      - name: state
-        description: "{{ doc('state') }}"
-
   - name: stg_amazon_ads__portfolio_history
     description: Each record represents a portfolio in Amazon Ads.
     tests:
@@ -222,7 +191,7 @@ models:
             - last_update_date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: portfolio_id
         description: "{{ doc('portfolio_id') }}"
         tests:
@@ -259,7 +228,7 @@ models:
             - last_update_date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: ad_id
         description: "{{ doc('ad_id') }}"
         tests:
@@ -290,7 +259,7 @@ models:
             - date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: date
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
@@ -317,7 +286,7 @@ models:
             - date
     columns:
       - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"\n
+        description: "{{ doc('_fivetran_synced') }}"
       - name: date
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
