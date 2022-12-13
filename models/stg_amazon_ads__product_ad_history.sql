@@ -20,12 +20,12 @@ fields as (
 final as (
     
     select 
-[0m03:17:57          _fivetran_synced,
+        _fivetran_synced,
         ad_group_id,
         asin,
         campaign_id,
         creation_date,
-        id,
+        id as ad_id,
         last_updated_date,
         serving_status,
         sku,

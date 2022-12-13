@@ -1,3 +1,4 @@
+{{ config(enabled=var('amazon_ads__portfolio_history_enabled', True)) }}
 
 with base as (
 
@@ -20,17 +21,17 @@ fields as (
 final as (
     
     select 
-[0m03:17:51          _fivetran_synced,
+        _fivetran_synced,
         budget_amount,
         budget_currency_code,
         budget_end_date,
         budget_policy,
         budget_start_date,
         creation_date,
-        id,
+        id as portfolio_id,
         in_budget,
         last_updated_date,
-        name,
+        name as portfolio_name,
         profile_id,
         serving_status,
         state

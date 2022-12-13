@@ -7,7 +7,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_group_id
-            - last_update_date
+            - last_updated_date
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_id') }}"
@@ -15,16 +15,16 @@ models:
         description: "{{ doc('ad_group_id') }}"
         tests:
           - not_null
-      - name: name
+      - name: ad_group_name
         description: "{{ doc('ad_group_name') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
       - name: creation_date
-        description: "{{ doc('last_update_date') }}"
+        description: "{{ doc('creation_date') }}"
       - name: default_bid
         description: "{{ doc('default_bid') }}"
-      - name: last_update_date
-        description: "{{ doc('last_update_date') }}"
+      - name: last_updated_date
+        description: "{{ doc('last_updated_date') }}"
       - name: serving_status
         description: "{{ doc('serving_status') }}"
       - name: state
@@ -89,7 +89,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - campaign_id
-            - last_update_date
+            - last_updated_date
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -97,12 +97,12 @@ models:
         description: "{{ doc('campaign_id') }}"
         tests:
           - not_null
-      - name: name
+      - name: campaign_name
         description: "{{ doc('campaign_name') }}"
       - name: creation_date
-        description: "{{ doc('last_update_date') }}"
-      - name: last_update_date
-        description: "{{ doc('last_update_date') }}"
+        description: "{{ doc('creation_date') }}"
+      - name: last_updated_date
+        description: "{{ doc('last_updated_date') }}"
       - name: portfolio_id
         description: "{{ doc('portfolio_id') }}"
       - name: bidding_strategy
@@ -117,6 +117,8 @@ models:
         description: The placement location where bid controls are used (placementTop or placementProductPage.)
       - name: premium_bid_adjustment
         description: A boolean representing whether premium bid adjustment is turned on for the campaign.
+      - name: profile_id
+        description: "{{ doc('profile_id') }}"
       - name: serving_status
         description: "{{ doc('serving_status') }}"
       - name: start_date
@@ -155,7 +157,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - keyword_id
-            - last_update_date
+            - last_updated_date
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -163,17 +165,19 @@ models:
         description: "{{ doc('keyword_id') }}"
         tests:
           - not_null
-      - name: last_update_date
-        description: "{{ doc('last_update_date') }}"
+      - name: last_updated_date
+        description: "{{ doc('last_updated_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+      - name: bid
+        description: "{{ doc('bid_keyword') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
       - name: creation_date
         description: "{{ doc('creation_date') }}"            
       - name: keyword_text
         description: The exact text for the keyword.
-      - name: keyword_match_type
+      - name: match_type
         description: "{{ doc('keyword_match_type') }}"
       - name: native_language_keyword
         description: The unlocalized keyword text in the preferred locale of the advertiser.
@@ -188,7 +192,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - portfolio_id
-            - last_update_date
+            - last_updated_date
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -198,10 +202,10 @@ models:
           - not_null
       - name: portfolio_name
         description: "{{ doc('portfolio_name') }}"
-      - name: last_update_date
-        description: "{{ doc('last_update_date') }}"
+      - name: last_updated_date
+        description: "{{ doc('last_updated_date') }}"
       - name: creation_date
-        description: "{{ doc('last_update_date') }}"
+        description: "{{ doc('creation_date') }}"
       - name: budget_amount
         description: The budget amount associated with the portfolio. Cannot be null.
       - name: budget_currency_code
@@ -214,6 +218,8 @@ models:
         description: The budget policy. Set to dateRange to specify a budget for a specific period of time. Set to monthlyRecurring to specify a budget that is automatically renewed at the beginning of each month. Cannot be null.
       - name: in_budget
         description: Indicates the current budget status of the portfolio. Set to true if the portfolio is in budget, set to false if the portfolio is out of budget.
+      - name: profile_id
+        description: "{{ doc('profile_id') }}"
       - name: serving_status
         description: "{{ doc('serving_status') }}"
       - name: state
@@ -225,7 +231,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_id
-            - last_update_date
+            - last_updated_date
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -233,8 +239,8 @@ models:
         description: "{{ doc('ad_id') }}"
         tests:
           - not_null
-      - name: last_update_date
-        description: "{{ doc('last_update_date') }}"
+      - name: last_updated_date
+        description: "{{ doc('last_updated_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
       - name: campaign_id
@@ -283,6 +289,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - search_term
+            - keyword_id
             - date
     columns:
       - name: _fivetran_synced

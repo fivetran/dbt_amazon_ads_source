@@ -20,15 +20,15 @@ fields as (
 final as (
     
     select 
-[0m03:17:40          _fivetran_synced,
+        _fivetran_synced,
         bidding_strategy,
         campaign_type,
         creation_date,
         daily_budget,
         end_date,
-        id,
+        id as campaign_id,
         last_updated_date,
-        name,
+        name as campaign_name,
         placement,
         portfolio_id,
         premium_bid_adjustment,

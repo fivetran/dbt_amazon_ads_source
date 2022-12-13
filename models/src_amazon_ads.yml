@@ -28,11 +28,11 @@ sources:
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
           - name: creation_date
-            description: "{{ doc('last_update_date') }}"
+            description: "{{ doc('creation_date') }}"
           - name: default_bid
             description: "{{ doc('default_bid') }}"
-          - name: last_update_date
-            description: "{{ doc('last_update_date') }}"
+          - name: last_updated_date
+            description: "{{ doc('last_updated_date') }}"
           - name: serving_status
             description: "{{ doc('serving_status') }}"
           - name: state
@@ -89,9 +89,9 @@ sources:
           - name: name
             description: "{{ doc('campaign_name') }}"
           - name: creation_date
-            description: "{{ doc('last_update_date') }}"
-          - name: last_update_date
-            description: "{{ doc('last_update_date') }}"
+            description: "{{ doc('creation_date') }}"
+          - name: last_updated_date
+            description: "{{ doc('last_updated_date') }}"
           - name: portfolio_id
             description: "{{ doc('portfolio_id') }}"
           - name: bidding_strategy
@@ -106,6 +106,8 @@ sources:
             description: The placement location where bid controls are used (placementTop or placementProductPage.)
           - name: premium_bid_adjustment
             description: A boolean representing whether premium bid adjustment is turned on for the campaign.
+          - name: profile_id
+            description: "{{ doc('profile_id') }}"
           - name: serving_status
             description: "{{ doc('serving_status') }}"
           - name: start_date
@@ -140,17 +142,19 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
           - name: id
             description: "{{ doc('keyword_id') }}"
-          - name: last_update_date
-            description: "{{ doc('last_update_date') }}"
+          - name: last_updated_date
+            description: "{{ doc('last_updated_date') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
+          - name: bid
+            description: "{{ doc('bid_keyword') }}"
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
           - name: creation_date
             description: "{{ doc('creation_date') }}"            
           - name: keyword_text
             description: The exact text for the keyword.
-          - name: keyword_match_type
+          - name: match_type
             description: "{{ doc('keyword_match_type') }}"
           - name: native_language_keyword
             description: The unlocalized keyword text in the preferred locale of the advertiser.
@@ -169,10 +173,10 @@ sources:
             description: "{{ doc('portfolio_id') }}"
           - name: name
             description: "{{ doc('portfolio_name') }}"
-          - name: last_update_date
-            description: "{{ doc('last_update_date') }}"
+          - name: last_updated_date
+            description: "{{ doc('last_updated_date') }}"
           - name: creation_date
-            description: "{{ doc('last_update_date') }}"
+            description: "{{ doc('creation_date') }}"
           - name: budget_amount
             description: The budget amount associated with the portfolio. Cannot be null.
           - name: budget_currency_code
@@ -196,10 +200,10 @@ sources:
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
-          - name: ad_id
+          - name: id
             description: "{{ doc('ad_id') }}"
-          - name: last_update_date
-            description: "{{ doc('last_update_date') }}"
+          - name: last_updated_date
+            description: "{{ doc('last_updated_date') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
           - name: campaign_id

@@ -1,4 +1,4 @@
-[0m03:19:30  {% macro get_search_term_ad_keyword_report_columns() %}
+{% macro get_search_term_ad_keyword_report_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},

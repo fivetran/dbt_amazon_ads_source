@@ -20,13 +20,13 @@ fields as (
 final as (
     
     select 
-[0m03:17:34          _fivetran_synced,
+        _fivetran_synced,
         campaign_id,
         creation_date,
         default_bid,
-        id,
+        id as ad_group_id,
         last_updated_date,
-        name,
+        name as ad_group_name,
         serving_status,
         state
     from fields

@@ -1,4 +1,4 @@
-[0m03:19:05  {% macro get_ad_group_level_report_columns() %}
+{% macro get_ad_group_level_report_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},

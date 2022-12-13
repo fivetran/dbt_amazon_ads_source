@@ -17,7 +17,7 @@ vars:
     amazon_ads_product_ad_history_identifier: "product_ad_history"
     amazon_ads_keyword_history_identifier: "keyword_history"
     amazon_ads_targeting_keyword_report_identifier: "targeting_keyword_report"
-    amazon_ads_search_term_targeting_report_identifier: "search_term_targeting_report"
+    amazon_ads_search_term_ad_keyword_report_identifier: "search_term_ad_keyword_report"
 
 models:
   amazon_ads_source:

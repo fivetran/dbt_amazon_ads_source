@@ -18,6 +18,10 @@ The name of the AdGroup.
 The ID of the Ad.
 {% enddocs %}
 
+{% docs bid_keyword %}
+Bid associated with this keyword.
+{% enddocs %}
+
 {% docs campaign_id %}
 The ID of the Campaign.
 {% enddocs %}
@@ -54,7 +58,7 @@ The ID of the keyword.
 One of (broad, exact, or phrase.)
 {% enddocs %}
 
-{% docs last_update_date %}
+{% docs last_updated_date %}
 Date of last update to record.
 {% enddocs %}
 
@@ -68,6 +72,10 @@ The ID of the Portfolio.
 
 {% docs portfolio_name %}
 The name of the Portfolio.
+{% enddocs %}
+
+{% docs profile_id %}
+The profile ID associated with your Amazon Ads account.
 {% enddocs %}
 
 {% docs report_date %}

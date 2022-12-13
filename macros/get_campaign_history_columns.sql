@@ -1,4 +1,4 @@
-[0m03:17:12  {% macro get_campaign_history_columns() %}
+{% macro get_campaign_history_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},

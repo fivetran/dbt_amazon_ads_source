@@ -20,7 +20,7 @@ fields as (
 final as (
     
     select 
-[0m03:19:37          _fivetran_synced,
+        _fivetran_synced,
         ad_group_id,
         attributed_sales_same_sku_14_d,
         attributed_sales_same_sku_1_d,

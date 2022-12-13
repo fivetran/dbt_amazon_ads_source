@@ -20,7 +20,7 @@ fields as (
 final as (
     
     select 
-[0m03:20:00          _fivetran_synced,
+        _fivetran_synced,
         acos_clicks_14_d,
         acos_clicks_7_d,
         ad_group_id,
