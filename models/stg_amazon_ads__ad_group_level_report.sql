@@ -27,7 +27,7 @@ final as (
         date as date_day,
         impressions
 
-        {{ fivetran_utils.fill_pass_through_columns('amazon_ads__campaign_passthrough_metrics') }}
+        {{ fivetran_utils.fill_pass_through_columns('amazon_ads__ad_group_passthrough_metrics') }}
     from fields
 )
 
