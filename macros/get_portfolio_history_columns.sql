@@ -1,7 +1,6 @@
 {% macro get_portfolio_history_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "budget_amount", "datatype": dbt.type_float()},
     {"name": "budget_currency_code", "datatype": dbt.type_string()},
     {"name": "budget_end_date", "datatype": "date"},

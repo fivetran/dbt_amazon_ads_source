@@ -21,7 +21,6 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
         budget_amount,
         budget_currency_code,
         budget_end_date,
@@ -34,7 +33,8 @@ final as (
         name as portfolio_name,
         profile_id,
         serving_status,
-        state
+        state,
+        row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record
     from fields
 )
 

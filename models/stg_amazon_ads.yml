@@ -37,11 +37,11 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_group_id
-            - date
+            - date_day
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
@@ -62,11 +62,11 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_id
-            - date
+            - date_day
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_id
         description: "{{ doc('ad_group_id') }}"
@@ -134,11 +134,11 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - campaign_id
-            - date
+            - date_day
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
@@ -262,11 +262,11 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - keyword_id
-            - date
+            - date_day
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
@@ -290,11 +290,11 @@ models:
           combination_of_columns:
             - search_term
             - keyword_id
-            - date
+            - date_day
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"

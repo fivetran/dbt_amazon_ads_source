@@ -1,7 +1,6 @@
 {% macro get_campaign_history_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "bidding_strategy", "datatype": dbt.type_string()},
     {"name": "campaign_type", "datatype": dbt.type_string()},
     {"name": "creation_date", "datatype": dbt.type_timestamp()},

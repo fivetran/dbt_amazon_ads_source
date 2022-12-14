@@ -21,7 +21,6 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
         bidding_strategy,
         campaign_type,
         creation_date,
@@ -37,7 +36,8 @@ final as (
         serving_status,
         start_date,
         state,
-        targeting_type
+        targeting_type,
+        row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record
     from fields
 )
 
