@@ -48,8 +48,6 @@ sources:
             description: "{{ doc('report_date') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
-          - name: campaign_id
-            description: "{{ doc('campaign_id') }}"
           - name: clicks
             description: "{{ doc('clicks') }}"
           - name: impressions
@@ -166,6 +164,8 @@ sources:
       - name: portfolio_history 
         description: Each record represents a portfolio in Amazon Ads.
         identifier: "{{ var('amazon_ads_portfolio_history_identifier', 'portfolio_history') }}"
+        config:
+          enabled: "{{ var('ad_reporting__amazon_ads_enabled', true) }} and {{ var('amazon_ads__portfolio_history_enabled', true) }}"
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"

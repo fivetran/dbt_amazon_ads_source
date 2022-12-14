@@ -1,7 +1,6 @@
 {% macro get_ad_group_history_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "campaign_id", "datatype": dbt.type_int()},
     {"name": "creation_date", "datatype": dbt.type_timestamp()},
     {"name": "default_bid", "datatype": dbt.type_float()},

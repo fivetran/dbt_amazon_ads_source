@@ -9,8 +9,6 @@ models:
             - ad_group_id
             - last_updated_date
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_id') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
         tests:
@@ -29,7 +27,8 @@ models:
         description: "{{ doc('serving_status') }}"
       - name: state
         description: "{{ doc('state') }}"
-
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }}"
 
   - name: stg_amazon_ads__ad_group_level_report
     description: Campaign reports contain performance data broken down at the ad group and campaign level. 
@@ -37,18 +36,16 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_group_id
-            - date
+            - date_day
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
         tests:
           - not_null
-      - name: campaign_id
-        description: "{{ doc('campaign_id') }}"
+      - name: campaign_bidding_strategy
+        description: "{{ doc('campaign_bidding_strategy') }}"
       - name: clicks
         description: "{{ doc('clicks') }}"
       - name: impressions
@@ -62,11 +59,9 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_id
-            - date
+            - date_day
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_id
         description: "{{ doc('ad_group_id') }}"
@@ -74,6 +69,16 @@ models:
           - not_null
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+      - name: advertised_asin
+        description: "{{ doc('advertised_asin') }}"
+      - name: advertised_sku
+        description: "{{ doc('advertised_sku') }}" 
+      - name: campaign_budget_amount
+        description: "{{ doc('campaign_budget_amount') }}" 
+      - name: campaign_budget_currency_code
+        description: "{{ doc('campaign_budget_currency_code') }}"
+      - name: campaign_budget_type
+        description: "{{ doc('campaign_budget_type') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
       - name: clicks
@@ -91,8 +96,6 @@ models:
             - campaign_id
             - last_updated_date
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
         tests:
@@ -127,6 +130,8 @@ models:
         description: "{{ doc('state') }}"
       - name: targeting_type
         description: The type of targeting used for the campaign, either manual or auto.
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }}"
 
   - name: stg_amazon_ads__campaign_level_report
     description: Campaign reports contain performance data broken down at the campaign level. 
@@ -134,11 +139,9 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - campaign_id
-            - date
+            - date_day
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
@@ -150,6 +153,20 @@ models:
         description: "{{ doc('impressions') }}"
       - name: cost
         description: "{{ doc('cost') }}"
+      - name: campaign_applicable_budget_rule_id
+        description: "{{ doc('campaign_applicable_budget_rule_id') }}" 
+      - name: campaign_applicable_budget_rule_name
+        description: "{{ doc('campaign_applicable_budget_rule_name') }}"
+      - name: campaign_bidding_strategy
+        description: "{{ doc('campaign_bidding_strategy') }}"
+      - name: campaign_budget_amount
+        description: "{{ doc('campaign_budget_amount') }}" 
+      - name: campaign_budget_currency_code
+        description: "{{ doc('campaign_budget_currency_code') }}"
+      - name: campaign_budget_type
+        description: "{{ doc('campaign_budget_type') }}"
+      - name: campaign_rule_based_budget_amount
+        description: "{{ doc('campaign_rule_based_budget_amount') }}"
 
   - name: stg_amazon_ads__keyword_history
     description: Each record represents a keyword in Amazon Ads.
@@ -159,8 +176,6 @@ models:
             - keyword_id
             - last_updated_date
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: keyword_id
         description: "{{ doc('keyword_id') }}"
         tests:
@@ -185,6 +200,8 @@ models:
         description: "{{ doc('serving_status') }}"
       - name: state
         description: "{{ doc('state') }}"
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }}"
 
   - name: stg_amazon_ads__portfolio_history
     description: Each record represents a portfolio in Amazon Ads.
@@ -194,8 +211,6 @@ models:
             - portfolio_id
             - last_updated_date
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: portfolio_id
         description: "{{ doc('portfolio_id') }}"
         tests:
@@ -224,6 +239,8 @@ models:
         description: "{{ doc('serving_status') }}"
       - name: state
         description: "{{ doc('state') }}"
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }}"
 
   - name: stg_amazon_ads__product_ad_history
     description: Each record represents a product in Amazon Ads.
@@ -233,8 +250,6 @@ models:
             - ad_id
             - last_updated_date
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: ad_id
         description: "{{ doc('ad_id') }}"
         tests:
@@ -255,6 +270,8 @@ models:
         description: "{{ doc('serving_status') }}"
       - name: state
         description: "{{ doc('state') }}"
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }}"
 
   - name: stg_amazon_ads__targeting_keyword_report
     description: Targeting reports contain performance metrics broken down by both targeting expressions and keywords.
@@ -262,16 +279,24 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - keyword_id
-            - date
+            - date_day
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+      - name: ad_keyword_status
+        description: "{{ doc('ad_keyword_status') }}" 
+      - name: campaign_budget_amount
+        description: "{{ doc('campaign_budget_amount') }}" 
+      - name: campaign_budget_currency_code
+        description: "{{ doc('campaign_budget_currency_code') }}"
+      - name: campaign_budget_type
+        description: "{{ doc('campaign_budget_type') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
+      - name: keyword_bid
+        description: "{{ doc('keyword_bid') }}"
       - name: keyword_id
         description: "{{ doc('keyword_id') }}"
         tests:
@@ -282,6 +307,12 @@ models:
         description: "{{ doc('impressions') }}"
       - name: cost
         description: "{{ doc('cost') }}"
+      - name: keyword_type
+        description: "{{ doc('keyword_type') }}"
+      - name: match_type
+        description: "{{ doc('match_type') }}"
+      - name: targeting
+        description: "{{ doc('targeting') }}"
 
   - name: stg_amazon_ads__search_term_ad_keyword_report
     description: Search term reports contain search term performance metrics broken down by targeting expressions and keywords. 
@@ -290,16 +321,24 @@ models:
           combination_of_columns:
             - search_term
             - keyword_id
-            - date
+            - date_day
     columns:
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+      - name: ad_keyword_status
+        description: "{{ doc('ad_keyword_status') }}" 
+      - name: campaign_budget_amount
+        description: "{{ doc('campaign_budget_amount') }}" 
+      - name: campaign_budget_currency_code
+        description: "{{ doc('campaign_budget_currency_code') }}"
+      - name: campaign_budget_type
+        description: "{{ doc('campaign_budget_type') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
+      - name: keyword_bid
+        description: "{{ doc('keyword_bid') }}"
       - name: keyword_id
         description: "{{ doc('keyword_id') }}"
       - name: clicks
@@ -312,3 +351,5 @@ models:
         description: "{{ doc('search_term') }}"
         tests:
           - not_null
+      - name: targeting
+        description: "{{ doc('targeting') }}"

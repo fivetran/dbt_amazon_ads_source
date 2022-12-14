@@ -21,7 +21,6 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
         ad_group_id,
         asin,
         campaign_id,
@@ -30,7 +29,8 @@ final as (
         last_updated_date,
         serving_status,
         sku,
-        state
+        state,
+        row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record
     from fields
 )
 
