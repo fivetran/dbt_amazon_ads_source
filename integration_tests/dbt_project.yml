@@ -27,10 +27,10 @@ seeds:
   +quote_columns: "{{ true if target.type == 'redshift' else false }}"
   amazon_ads_source_integration_tests:
     +column_types:
-      _fivetran_synced: timestamp
-      campaign_budget_amount: float
-      click_through_rate: float
-      keyword_bid: float
+      _fivetran_synced: "timestamp"
+      campaign_budget_amount: "float"
+      click_through_rate: "float"
+      keyword_bid: "float"
         
 dispatch:
   - macro_namespace: dbt_utils
