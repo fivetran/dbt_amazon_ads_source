@@ -45,7 +45,16 @@ vars:
   amazon_ads_database: your_database_name
   amazon_ads_schema: your_schema_name 
 ```
-## (Optional) Step 4: Additional configurations
+
+## Step 4: Disable models for non-existent sources
+Your Amazon Ads connector may not sync every table that this package expects. If you do not have the `PORTFOLIO_HISTORY` table synced, add the following variable to your root `dbt_project.yml` file:
+
+```yml
+vars:
+    amazon_ads__portfolio_history_enabled: False   # Disable if you do not have the portfolio table. Default is True.
+```
+
+## (Optional) Step 5: Additional configurations
 <details><summary>Expand for configurations</summary>
 
 ### Passing Through Additional Metrics
@@ -93,7 +102,7 @@ vars:
 
 </details>
 
-## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for more details</summary>
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).

@@ -17,6 +17,8 @@
     {"name": "targeting", "datatype": dbt.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('amazon_ads__search_term_ad_keyword_passthrough_metrics')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

@@ -9,6 +9,8 @@
     {"name": "impressions", "datatype": dbt.type_int()},
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('amazon_ads__ad_group_passthrough_metrics')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
