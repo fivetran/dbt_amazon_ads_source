@@ -273,6 +273,36 @@ models:
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
 
+  - name: stg_amazon_ads__profile
+    description: Each record represents a profile. Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have one profile associated with each marketplace.
+    columns:
+      - name: _fivetran_deleted
+        description: "{{ doc('_fivetran_deleted') }}"
+      - name: profile_id
+        description: ID of the profile. Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have one profile associated with each marketplace.
+        tests: 
+          - not null
+      - name: account_id
+        description: Identifier for sellers and vendors. Note that this value is not unique and may be the same across marketplace.
+      - name: account_marketplace_string_id
+        description: The identifier of the marketplace to which the account is associated.
+      - name: account_name
+        description: Account Name. Not currently populated for sellers.
+      - name: account_sub_type
+        description: The account subtype.
+      - name: account_type
+        description: One of seller, vendor, or agency.
+      - name: account_valid_payment_method
+        description: For Vendors, this returns if the Advertiser has set up a valid payment method.
+      - name: country_code
+        description: The code for a given country.
+      - name: currency_code
+        description: The currency used for all monetary values for entities under this profile.
+      - name:  daily_budget
+        description: Daily budget for Sponsored Product campaigns for seller type accounts.
+      - name: timezone
+        description: The time zone used for all date-based campaign management and reporting.
+
   - name: stg_amazon_ads__targeting_keyword_report
     description: Targeting reports contain performance metrics broken down by both targeting expressions and keywords.
     tests:
