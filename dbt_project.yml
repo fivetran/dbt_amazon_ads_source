@@ -12,6 +12,7 @@ vars:
     campaign_level_report: "{{ source('amazon_ads','campaign_level_report') }}"
     portfolio_history: "{{ source('amazon_ads','portfolio_history') }}"
     product_ad_history: "{{ source('amazon_ads','product_ad_history') }}"
+    profile: "{{ source('amazon_ads','profile') }}"
     keyword_history: "{{ source('amazon_ads','keyword_history') }}"
     targeting_keyword_report: "{{ source('amazon_ads','targeting_keyword_report') }}"
     search_term_ad_keyword_report: "{{ source('amazon_ads','search_term_ad_keyword_report') }}"
