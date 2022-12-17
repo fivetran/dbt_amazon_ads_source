@@ -221,7 +221,7 @@ sources:
       
       - name: profile
         description: Each record represents a profile. Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have one profile associated with each marketplace.
-        identifier: "{{ var('amazon_ads_profile_identifier', 'product_ad_history') }}"
+        identifier: "{{ var('amazon_ads_profile_identifier', 'profile') }}"
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
