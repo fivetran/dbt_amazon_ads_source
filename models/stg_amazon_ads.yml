@@ -281,7 +281,7 @@ models:
       - name: profile_id
         description: ID of the profile. Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have one profile associated with each marketplace.
         tests: 
-          - not null
+          - not_null
       - name: account_id
         description: Identifier for sellers and vendors. Note that this value is not unique and may be the same across marketplace.
       - name: account_marketplace_string_id
