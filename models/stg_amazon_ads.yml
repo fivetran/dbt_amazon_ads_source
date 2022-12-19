@@ -31,7 +31,7 @@ models:
         description: "{{ doc('is_most_recent_record') }}"
 
   - name: stg_amazon_ads__ad_group_level_report
-    description: Campaign reports contain performance data broken down at the ad group and campaign level. 
+    description: Each record in this table represents the daily performance by Amazon ad group.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -279,15 +279,15 @@ models:
       - name: _fivetran_deleted
         description: "{{ doc('_fivetran_deleted') }}"
       - name: profile_id
-        description: ID of the profile. Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have one profile associated with each marketplace.
+        description: "{{ doc('profile_id') }}"
         tests: 
           - not_null
       - name: account_id
-        description: Identifier for sellers and vendors. Note that this value is not unique and may be the same across marketplace.
+        description: "{{ doc('account_id') }}"
       - name: account_marketplace_string_id
         description: The identifier of the marketplace to which the account is associated.
       - name: account_name
-        description: Account Name. Not currently populated for sellers.
+        description: "{{ doc('account_name') }}"
       - name: account_sub_type
         description: The account subtype.
       - name: account_type
@@ -295,9 +295,9 @@ models:
       - name: account_valid_payment_method
         description: For Vendors, this returns if the Advertiser has set up a valid payment method.
       - name: country_code
-        description: The code for a given country.
+        description: "{{ doc('country_code') }}"
       - name: currency_code
-        description: The currency used for all monetary values for entities under this profile.
+        description: "{{ doc('currency_code') }}"
       - name:  daily_budget
         description: Daily budget for Sponsored Product campaigns for seller type accounts.
       - name: timezone
