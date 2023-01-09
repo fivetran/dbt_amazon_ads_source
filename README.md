@@ -12,7 +12,7 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Amazon_ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_amazon_ads_source/))
+# Amazon Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_amazon_ads_source/))
 # 📣 What does this dbt package do?
 - Materializes [Amazon Ads staging tables](https://fivetran.github.io/dbt_amazon_ads_source/#!/overview/amazon_ads_source/models/?g_v=1&g_e=seeds), which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/amazon-ads#schemainformation). These staging tables clean, test, and prepare your Amazon Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/amazon-ads) for analysis by doing the following:
   - Names columns for consistency across all packages and for easier analysis
