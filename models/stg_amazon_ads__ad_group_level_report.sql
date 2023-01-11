@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ var('ad_group_level_report')  }}
+    from {{ source('amazon_ads','ad_group_level_report') }}
 ),
 
 fields as (

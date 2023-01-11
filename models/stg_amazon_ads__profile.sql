@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ var('profile') }}
+    from {{ source('amazon_ads','profile') }}
 ),
 
 fields as (

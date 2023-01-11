@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ var('ad_group_history') }}
+    from {{ source('amazon_ads','ad_group_history') }}
 ),
 
 fields as (

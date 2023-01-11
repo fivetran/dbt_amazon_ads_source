@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ var('targeting_keyword_report') }}
+    from {{ source('amazon_ads','targeting_keyword_report') }}
 ),
 
 fields as (
