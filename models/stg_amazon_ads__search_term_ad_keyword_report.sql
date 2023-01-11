@@ -11,9 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(
-                    source('amazon_ads', var('amazon_ads_search_term_ad_keyword_report_identifier', 'search_term_ad_keyword_report'))
-                    ),
+                source_columns=adapter.get_columns_in_relation(source('amazon_ads','search_term_ad_keyword_report')),
                 staging_columns=get_search_term_ad_keyword_report_columns()
             )
         }}

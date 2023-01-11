@@ -11,9 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(
-                    source('amazon_ads', var('amazon_ads_portfolio_history_identifier', 'portfolio_history'))
-                    ),
+                source_columns=adapter.get_columns_in_relation(source('amazon_ads','portfolio_history')),
                 staging_columns=get_portfolio_history_columns()
             )
         }}
