@@ -3,15 +3,17 @@
 with base as (
 
     select * 
-    from {{ ref('stg_amazon_ads__ad_group_history_tmp') }}
+    from {{ var('ad_group_history') }}
 ),
 
 fields as (
-
+    
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_amazon_ads__ad_group_history_tmp')),
+                source_columns=adapter.get_columns_in_relation(
+                    source('amazon_ads', var('amazon_ads_ad_group_history_identifier', 'ad_group_history'))
+                    ),
                 staging_columns=get_ad_group_history_columns()
             )
         }}
