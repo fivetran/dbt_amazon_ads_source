@@ -3,15 +3,14 @@
 with base as (
 
     select * 
-    from {{ source('amazon_ads','keyword_history') }}
+    from {{ var('keyword_history') }}
 ),
 
 fields as (
-
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(source('amazon_ads','keyword_history')),
+                source_columns=get_relation_cols(var('keyword_history')),
                 staging_columns=get_keyword_history_columns()
             )
         }}

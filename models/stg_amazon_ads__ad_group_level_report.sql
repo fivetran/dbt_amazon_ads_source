@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ source('amazon_ads','ad_group_level_report') }}
+    from {{ var('ad_group_level_report') }}
 ),
 
 fields as (
@@ -10,7 +10,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(source('amazon_ads','ad_group_level_report')),
+                source_columns=get_relation_cols(var('ad_group_level_report')),
                 staging_columns=get_ad_group_level_report_columns()
             )
         }}

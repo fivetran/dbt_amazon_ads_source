@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ source('amazon_ads','search_term_ad_keyword_report') }}
+    from {{ var('search_term_ad_keyword_report') }}
 ),
 
 fields as (
@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(source('amazon_ads','search_term_ad_keyword_report')),
+                source_columns=get_relation_cols(var('search_term_ad_keyword_report')),
                 staging_columns=get_search_term_ad_keyword_report_columns()
             )
         }}

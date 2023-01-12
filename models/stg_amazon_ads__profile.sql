@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ source('amazon_ads','profile') }}
+    from {{ var('profile') }}
 ),
 
 fields as (
@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(source('amazon_ads','profile')),
+                source_columns=get_relation_cols(var('profile')),
                 staging_columns=get_profile_columns()
             )
         }}
