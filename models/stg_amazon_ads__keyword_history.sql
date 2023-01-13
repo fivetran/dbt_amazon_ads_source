@@ -10,7 +10,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=get_relation_cols(var('keyword_history')),
+                source_columns=get_relation_cols('keyword_history'),
                 staging_columns=get_keyword_history_columns()
             )
         }}

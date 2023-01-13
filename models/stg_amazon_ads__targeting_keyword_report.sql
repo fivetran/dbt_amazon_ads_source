@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=get_relation_cols(var('targeting_keyword_report')),
+                source_columns=get_relation_cols('targeting_keyword_report'),
                 staging_columns=get_targeting_keyword_report_columns()
             )
         }}

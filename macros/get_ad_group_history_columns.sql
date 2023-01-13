@@ -8,7 +8,8 @@
     {"name": "last_updated_date", "datatype": dbt.type_timestamp()},
     {"name": "name", "datatype": dbt.type_string()},
     {"name": "serving_status", "datatype": dbt.type_string()},
-    {"name": "state", "datatype": dbt.type_string()}
+    {"name": "state", "datatype": dbt.type_string()},
+    {"name": "test_extra_column", "datatype": dbt.type_string()}
 ] %}
 
 {{ return(columns) }}

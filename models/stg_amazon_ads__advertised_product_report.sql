@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=get_relation_cols(var('advertised_product_report')),
+                source_columns=get_relation_cols('advertised_product_report'),
                 staging_columns=get_advertised_product_report_columns()
             )
         }}

@@ -10,7 +10,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=get_relation_cols(var('ad_group_level_report')),
+                source_columns=get_relation_cols('ad_group_level_report'),
                 staging_columns=get_ad_group_level_report_columns()
             )
         }}
