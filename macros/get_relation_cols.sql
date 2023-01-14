@@ -3,14 +3,11 @@
 {% set query %}
     select *
     from {{ var(relation_var) }}
+    limit 0
 {% endset %}
 
-{% set results = run_query(query) %}
-
 {% if execute %}
-    {% set relation_columns = results.columns %}
+    {{ return(run_query(query).columns) }}
 {% endif %}
-
-{{ return(relation_columns) }}
 
 {% endmacro %}
