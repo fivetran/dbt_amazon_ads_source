@@ -1,6 +1,6 @@
 # dbt_amazon_ads_source v0.1.1
 ## Bug Fixes
-- The `portfolio_history` source config has been adjusted to be more accurate and allow for full project compilation in dbt-core >=1.4.0.
+- The `portfolio_history` source config has been adjusted to be more accurate and allow for full project compilation in dbt-core >=1.4.0. ([#5](https://github.com/fivetran/dbt_amazon_ads_source/pull/5))
 
 # dbt_amazon_ads_source v0.1.0
 🎉 This is the initial release of this package! 🎉
