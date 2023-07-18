@@ -94,16 +94,14 @@ sources:
             description: "{{ doc('portfolio_id') }}"
           - name: bidding_strategy
             description: The bidding strategy associated with a campaign (legacyForSales, autoForSales, or manual.)
-          - name: campaign_type
-            description: The ad type related to the campaign. 
-          - name: daily_budget
-            description: The daily budget for the campaign as set by the advertiser.
+          - name: budget
+            description: The budget for the campaign.
+          - name: budget_type
+            description: "{{ doc('campaign_budget_type') }}"
+          - name: effective_budget
+            description: Adjusted budget for the campaign that has been impacted by a budget rule.
           - name: end_date
             description: The end date of the campaign.
-          - name: placement
-            description: The placement location where bid controls are used (placementTop or placementProductPage.)
-          - name: premium_bid_adjustment
-            description: A boolean representing whether premium bid adjustment is turned on for the campaign.
           - name: profile_id
             description: "{{ doc('profile_id') }}"
           - name: serving_status
@@ -156,6 +154,8 @@ sources:
             description: "{{ doc('keyword_match_type') }}"
           - name: native_language_keyword
             description: The unlocalized keyword text in the preferred locale of the advertiser.
+          - name: native_language_locale
+            description: The preferred language locale of the advertiser.
           - name: serving_status
             description: "{{ doc('serving_status') }}"
           - name: state

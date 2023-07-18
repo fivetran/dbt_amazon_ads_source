@@ -4,7 +4,7 @@
     {"name": "bidding_strategy", "datatype": dbt.type_string()},
     {"name": "creation_date", "datatype": dbt.type_timestamp()},
     {"name": "end_date", "datatype": "date"},
-    {"name": "id", "datatype": dbt.type_int()},
+    {"name": "id", "datatype": dbt.type_string()},
     {"name": "last_updated_date", "datatype": dbt.type_timestamp()},
     {"name": "name", "datatype": dbt.type_string()},
     {"name": "portfolio_id", "datatype": dbt.type_int()},

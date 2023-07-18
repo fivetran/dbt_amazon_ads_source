@@ -110,6 +110,12 @@ models:
         description: "{{ doc('portfolio_id') }}"
       - name: bidding_strategy
         description: The bidding strategy associated with a campaign (legacyForSales, autoForSales, or manual.)
+      - name: budget
+        description: The budget for the campaign.
+      - name: budget_type
+        description: "{{ doc('campaign_budget_type') }}"
+      - name: effective_budget
+        description: Adjusted budget for the campaign that has been impacted by a budget rule.
       - name: end_date
         description: The end date of the campaign.
       - name: profile_id
@@ -122,12 +128,6 @@ models:
         description: "{{ doc('state') }}"
       - name: targeting_type
         description: The type of targeting used for the campaign, either manual or auto.
-      - name: budget
-        description: The budget for the campaign.
-      - name: budget_type
-        description: "{{ doc('campaign_budget_type') }}"
-      - name: effective_budget
-        description: Adjusted budget that has been impacted by a budget rule.
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
 
@@ -194,6 +194,8 @@ models:
         description: "{{ doc('keyword_match_type') }}"
       - name: native_language_keyword
         description: The unlocalized keyword text in the preferred locale of the advertiser.
+      - name: native_language_locale
+        description: The preferred language locale of the advertiser.
       - name: serving_status
         description: "{{ doc('serving_status') }}"
       - name: state

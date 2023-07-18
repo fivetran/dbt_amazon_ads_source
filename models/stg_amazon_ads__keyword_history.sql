@@ -32,6 +32,7 @@ final as (
         native_language_keyword,
         serving_status,
         state,
+        native_language_locale,
         row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record
     from fields
 )
