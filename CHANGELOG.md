@@ -11,7 +11,7 @@
 
  ## 🚘 Under the Hood
 [PR #11](https://github.com/fivetran/dbt_amazon_ads_source/pull/11) includes the following updates:
-- `get_*_column` macros now set the data type of the `id` column from INTERGER to STRING.
+- `get_*_column` macros now set the data type of the `id` column from INTEGER to STRING.
 - Updated testing seed data to reflect the column changes.
 
  [PR #8](https://github.com/fivetran/dbt_amazon_ads_source/pull/8) includes the following updates:
