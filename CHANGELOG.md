@@ -8,12 +8,11 @@
   - Added three new columns, `budget`, `budget_type`, and `effective_budget`
   - Removed the `campaign_type`, `daily_budget`, `placement`, and `premium_bid_adjustment` columns
 - Updated documentation with descriptions of the new columns.
-
  ## 🚘 Under the Hood
 [PR #11](https://github.com/fivetran/dbt_amazon_ads_source/pull/11) includes the following updates:
 - `get_*_column` macros now set the data type of the `id` column from INTEGER to STRING.
 - Updated testing seed data to reflect the column changes.
-
+- Updated discrepancies between seed data and documentation.
  [PR #8](https://github.com/fivetran/dbt_amazon_ads_source/pull/8) includes the following updates:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).

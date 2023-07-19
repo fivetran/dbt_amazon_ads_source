@@ -48,6 +48,8 @@ sources:
             description: "{{ doc('report_date') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
+          - name: campaign_bidding_strategy
+            description: "{{ doc('campaign_bidding_strategy') }}"
           - name: clicks
             description: "{{ doc('clicks') }}"
           - name: impressions
@@ -67,6 +69,16 @@ sources:
             description: "{{ doc('ad_group_id') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
+          - name: advertised_asin
+            description: "{{ doc('advertised_asin') }}"
+          - name: advertised_sku
+            description: "{{ doc('advertised_sku') }}" 
+          - name: campaign_budget_amount
+            description: "{{ doc('campaign_budget_amount') }}" 
+          - name: campaign_budget_currency_code
+            description: "{{ doc('campaign_budget_currency_code') }}"
+          - name: campaign_budget_type
+            description: "{{ doc('campaign_budget_type') }}"
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
           - name: clicks
@@ -129,6 +141,20 @@ sources:
             description: "{{ doc('impressions') }}"
           - name: cost
             description: "{{ doc('cost') }}"
+          - name: campaign_applicable_budget_rule_id
+            description: "{{ doc('campaign_applicable_budget_rule_id') }}" 
+          - name: campaign_applicable_budget_rule_name
+            description: "{{ doc('campaign_applicable_budget_rule_name') }}"
+          - name: campaign_bidding_strategy
+            description: "{{ doc('campaign_bidding_strategy') }}"
+          - name: campaign_budget_amount
+            description: "{{ doc('campaign_budget_amount') }}" 
+          - name: campaign_budget_currency_code
+            description: "{{ doc('campaign_budget_currency_code') }}"
+          - name: campaign_budget_type
+            description: "{{ doc('campaign_budget_type') }}"
+          - name: campaign_rule_based_budget_amount
+            description: "{{ doc('campaign_rule_based_budget_amount') }}"
 
       - name: keyword_history
         description: Each record represents a keyword in Amazon Ads.
@@ -189,6 +215,8 @@ sources:
             description: The budget policy. Set to dateRange to specify a budget for a specific period of time. Set to monthlyRecurring to specify a budget that is automatically renewed at the beginning of each month. Cannot be null.
           - name: in_budget
             description: Indicates the current budget status of the portfolio. Set to true if the portfolio is in budget, set to false if the portfolio is out of budget.
+          - name: profile_id
+            description: "{{ doc('profile_id') }}"
           - name: serving_status
             description: "{{ doc('serving_status') }}"
           - name: state
@@ -227,7 +255,7 @@ sources:
             description: "{{ doc('_fivetran_deleted') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
-          - name: profile_id
+          - name: id
             description: ID of the profile. 
           - name: account_id
             description: Identifier for sellers and vendors. Note that this value is not unique and may be the same across marketplace.
@@ -260,10 +288,26 @@ sources:
             description: "{{ doc('report_date') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
+          - name: ad_keyword_status
+            description: "{{ doc('ad_keyword_status') }}" 
+          - name: campaign_budget_amount
+            description: "{{ doc('campaign_budget_amount') }}" 
+          - name: campaign_budget_currency_code
+            description: "{{ doc('campaign_budget_currency_code') }}"
+          - name: campaign_budget_type
+            description: "{{ doc('campaign_budget_type') }}"
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
+          - name: keyword_bid
+            description: "{{ doc('keyword_bid') }}"
           - name: keyword_id
             description: "{{ doc('keyword_id') }}"
+          - name: keyword_type
+            description: "{{ doc('keyword_type') }}"
+          - name: match_type
+            description: "{{ doc('match_type') }}"
+          - name: targeting
+            description: "{{ doc('targeting') }}"
           - name: clicks
             description: "{{ doc('clicks') }}"
           - name: impressions
@@ -291,5 +335,15 @@ sources:
             description: "{{ doc('impressions') }}"
           - name: cost
             description: "{{ doc('cost') }}"
+          - name: campaign_budget_amount
+            description: "{{ doc('campaign_budget_amount') }}" 
+          - name: campaign_budget_currency_code
+            description: "{{ doc('campaign_budget_currency_code') }}"
+          - name: campaign_budget_type
+            description: "{{ doc('campaign_budget_type') }}"
+          - name: keyword_bid
+            description: "{{ doc('keyword_bid') }}"
           - name: search_term
             description: "{{ doc('search_term') }}"
+          - name: targeting
+            description: "{{ doc('targeting') }}"
