@@ -2,10 +2,12 @@
 [PR #11](https://github.com/fivetran/dbt_amazon_ads_source/pull/11) includes the following updates:
 ## 🚨 Breaking changes
 - This release is labeled breaking to reflect the Fivetran Amazon Ads connector's upgrade from version 2 to 3 of the Sponsored Products API. Further details are also available in the [June 2023 release notes](https://fivetran.com/docs/applications/amazon-ads/changelog#june2023).
-- Added a new column, `native_language_locale`, to the `keyword_history` staging tables.
-- Made the following changes to the `campaign_history` table:
-  - Added three new columns, `budget`, `budget_type`, and `effective_budget`
-  - Removed the `campaign_type`, `daily_budget`, `placement`, and `premium_bid_adjustment` columns
+- Removed:
+  - Columns `campaign_type`, `daily_budget`, `placement`, and `premium_bid_adjustment` from the `campaign_history` table.
+ ## 🎉 Features
+- Added:
+  - Columns `native_language_locale` to the `keyword_history` table.
+  - Columns `budget`, `budget_type`, and `effective_budget` to the `campaign_history` table.
 - Updated documentation with descriptions of the new columns.
  ## 🚘 Under the Hood
 - Any `id` fields that were not already data type STRING have been casted to STRING. This ensures smoother joins in downstream models.
