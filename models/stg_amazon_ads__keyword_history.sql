@@ -24,7 +24,7 @@ final as (
         cast(id as {{ dbt.type_string() }}) as keyword_id,
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         bid,
-        cast(campaign_id as {{ dbt.type_string() }}) as ad_group_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
         creation_date,
         keyword_text,
         last_updated_date,
