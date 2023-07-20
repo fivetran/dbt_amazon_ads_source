@@ -21,13 +21,13 @@ fields as (
 final as (
     
     select 
-        id as campaign_id,
+        cast(id as {{ dbt.type_string() }}) as campaign_id,
         last_updated_date,
         bidding_strategy,
         creation_date,
         end_date,
         name as campaign_name,
-        portfolio_id,
+        cast(portfolio_id as {{ dbt.type_string() }}) as portfolio_id,
         cast(profile_id as {{ dbt.type_string() }}) as profile_id,
         serving_status,
         start_date,

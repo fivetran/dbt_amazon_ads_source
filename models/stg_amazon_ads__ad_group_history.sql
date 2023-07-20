@@ -21,8 +21,8 @@ fields as (
 final as (
     
     select 
-        id as ad_group_id,
-        campaign_id,
+        cast(id as {{ dbt.type_string() }}) as ad_group_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
         creation_date,
         default_bid,
         last_updated_date,
