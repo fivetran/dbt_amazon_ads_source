@@ -13,9 +13,9 @@
     {"name": "start_date", "datatype": "date"},
     {"name": "state", "datatype": dbt.type_string()},
     {"name": "targeting_type", "datatype": dbt.type_string()},
-    {"name": "budget", "datatype": dbt.type_string()},
+    {"name": "budget", "datatype": dbt.type_float()},
     {"name": "budget_type", "datatype": dbt.type_string()},
-    {"name": "effective_budget", "datatype": dbt.type_string()}
+    {"name": "effective_budget", "datatype": dbt.type_float()}
 ] %}
 
 {{ return(columns) }}
