@@ -21,7 +21,7 @@ fields as (
 final as (
     
     select 
-        cast(id dbt.type_string()) as portfolio_id,
+        cast(id as {{ dbt.type_string() }}) as portfolio_id,
         budget_amount,
         budget_currency_code,
         budget_end_date,

@@ -22,7 +22,7 @@ final as (
     
     select 
         cast(ad_id as {{ dbt.type_string() }}) as ad_id,
-        cast(ad_group_id as dbt.type.string()) as ad_group_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         advertised_asin,
         advertised_sku,
         campaign_budget_amount,
