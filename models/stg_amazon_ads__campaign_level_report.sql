@@ -27,7 +27,7 @@ final as (
         campaign_budget_amount,
         campaign_budget_currency_code,
         campaign_budget_type,
-        campaign_id,
+        cast(campaign_id as dbt.type_string()) as campaign_id,
         campaign_rule_based_budget_amount,
         clicks,
         cost,

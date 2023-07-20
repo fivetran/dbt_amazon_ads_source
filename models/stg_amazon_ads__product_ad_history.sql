@@ -21,11 +21,11 @@ fields as (
 final as (
     
     select 
+        id as ad_id,
         ad_group_id,
         asin,
         campaign_id,
         creation_date,
-        id as ad_id,
         last_updated_date,
         serving_status,
         sku,

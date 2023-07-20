@@ -21,10 +21,10 @@ fields as (
 final as (
     
     select 
+        id as ad_group_id,
         campaign_id,
         creation_date,
         default_bid,
-        id as ad_group_id,
         last_updated_date,
         name as ad_group_name,
         serving_status,

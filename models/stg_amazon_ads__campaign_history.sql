@@ -28,7 +28,7 @@ final as (
         end_date,
         name as campaign_name,
         portfolio_id,
-        profile_id,
+        cast(profile_id as dbt.type_string()) as profile_id,
         serving_status,
         start_date,
         state,

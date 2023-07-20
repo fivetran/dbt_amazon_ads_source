@@ -21,14 +21,14 @@ fields as (
 final as (
     
     select 
-        ad_group_id,
-        ad_id,
+        cast(ad_id as dbt.type_string()) as ad_id,
+        cast(ad_group_id as dbt.type.string()) as ad_group_id,
         advertised_asin,
         advertised_sku,
         campaign_budget_amount,
         campaign_budget_currency_code,
         campaign_budget_type,
-        campaign_id,
+        cast(campaign_id as dbt.type_string()) as campaign_id,
         clicks,
         cost,
         date as date_day,

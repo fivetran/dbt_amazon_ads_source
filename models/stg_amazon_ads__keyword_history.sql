@@ -21,11 +21,11 @@ fields as (
 final as (
     
     select 
+        id as keyword_id,
         ad_group_id,
         bid,
         campaign_id,
         creation_date,
-        id as keyword_id,
         keyword_text,
         last_updated_date,
         match_type,
