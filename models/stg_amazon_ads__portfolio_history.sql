@@ -31,7 +31,7 @@ final as (
         in_budget,
         last_updated_date,
         name as portfolio_name,
-        cast(profile_id as dbt.type_string()) as profile_id,
+        cast(profile_id as {{ dbt.type_string() }}) as profile_id,
         serving_status,
         state,
         row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record

@@ -20,7 +20,7 @@ fields as (
 final as (
     
     select 
-        cast(ad_group_id as dbt.type_string()) as ad_group_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         campaign_bidding_strategy,
         clicks,
         cost,
