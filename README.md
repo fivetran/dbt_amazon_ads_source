@@ -1,3 +1,4 @@
+update
 <p align="center">
     <a alt="License"
         href="https://github.com/fivetran/dbt_amazon_ads_source/blob/main/LICENSE">
