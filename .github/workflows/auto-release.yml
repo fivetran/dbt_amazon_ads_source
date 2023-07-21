@@ -27,7 +27,7 @@ jobs:
           start_line=$(awk "/^# .*/{print NR+1; exit}" CHANGELOG.md)
           end_line=$(awk "/^# .*/{print NR-1; exit}" CHANGELOG.md)
           echo "start: $start_line"
-          echo "end: $end_line
+          echo "end: $end_line"
           # Extract the release notes between the line numbers
           awk -v start_line="$start_line" -v end_line="$end_line" 'NR >= start_line && NR <= end_line' CHANGELOG.md > extracted_notes.txt
           
