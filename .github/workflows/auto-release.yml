@@ -23,12 +23,11 @@ jobs:
       - name: Get current version from Github
         id: current_version
         run: |
-          # Extract the tag from the GITHUB_REF variable
-          # GITHUB_REF is in the format "refs/tags/v1.2.3" for tags
-          # We use cut to remove "refs/tags/" and get the version
-          CURRENT_VERSION=$(echo "${GITHUB_REF#refs/tags/}")
-          echo "Current version: $CURRENT_VERSION"
-          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          # Get the latest published release using the GitHub REST API
+          LATEST_RELEASE=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/latest" | jq -r '.tag_name')
+          echo "Latest published release tag: $LATEST_RELEASE"
+          echo "Current version: $LATEST_RELEASE"
+          echo "current_version=$LATEST_RELEASE" >> $GITHUB_OUTPUT
 
       - name: Extract release notes from changelog
         id: extract_notes
