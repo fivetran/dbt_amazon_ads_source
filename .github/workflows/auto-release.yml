@@ -8,22 +8,26 @@ jobs:
   draft-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out Code
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Read Changelog
-        uses: actions/github-script@v3
+        
+      - name: Extract version and notes
+        id: extract_version_notes
+        run: |
+          # Use appropriate commands to extract version and notes from the changelog file
+          # For example, you might use grep or awk to extract the information.
+          # Save the extracted version and notes as environment variables:
+          echo "Extracting version and notes from changelog..."
+          echo "VERSION=$(grep -oP '(?<=## )\[.*?\]' CHANGELOG.md | head -1)" >> $GITHUB_ENV
+          echo "NOTES=$(awk '/## \[.*?\]/{y=1;next}y' CHANGELOG.md | head -1)" >> $GITHUB_ENV
+        
+      - name: Draft release
+        uses: actions/create-release@v1
         with:
-          script: |
-            import github.Repository
-            repo = Repository(github.context.repo)
-            changelog = repo.get_contents('CHANGELOG.md').content
-            new_version = changelog.splitlines()[0][5]
-            notes = changelog.splitlines()[1:5]
-
-      - name: Create Release
-        uses: release-drafter/release-drafter@v1
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          tag_name: ${{ new_version }}
-          body: ${{ notes }}
+          tag_name: ${{ env.VERSION }}
+          release_name: ${{ env.VERSION }}
+          body: ${{ env.NOTES }}
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
