@@ -3,7 +3,7 @@
  ## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).
-# dbt_amazon_ads_source v0.1.1
+# fivetran-catfritz/release_tester v0.1.1
 ## Bug Fixes
 - The `portfolio_history` source config has been adjusted to be more accurate and allow for full project compilation in dbt-core >=1.4.0. ([#5](https://github.com/fivetran/dbt_amazon_ads_source/pull/5))
 
