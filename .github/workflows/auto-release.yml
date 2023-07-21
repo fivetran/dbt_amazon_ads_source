@@ -12,20 +12,30 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Extract version from changelog
-        id: extract_version
+      - name: Extract new version from changelog
+        id: new_version
         run: |
           # Extract the version number from the changelog file
           VERSION=$(grep -oP 'v[0-9]+.*' CHANGELOG.md | head -1 | tr -d '[:space:]')
           echo "Extracted version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
+      - name: Get current version from Github
+        id: current_version
+        run: |
+          # Extract the tag from the GITHUB_REF variable
+          # GITHUB_REF is in the format "refs/tags/v1.2.3" for tags
+          # We use cut to remove "refs/tags/" and get the version
+          CURRENT_VERSION=$(echo "${GITHUB_REF#refs/tags/}")
+          echo "Current version: $CURRENT_VERSION"
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+
       - name: Extract release notes from changelog
         id: extract_notes
         run: |
           # Use awk to extract the line numbers of the start and end headings
-          start_line=$(awk "/^# .*/{print NR+1; exit}" CHANGELOG.md)
-          end_line=$(awk "/^# .*/{print NR-1; exit}" CHANGELOG.md)
+          start_line=$(awk "/^# ${{ steps.new_version.outputs.version }}.*/{print NR+1; exit}" CHANGELOG.md)
+          end_line=$(awk "/^# ${{ steps.current_version.outputs.version }}.*/{print NR-1; exit}" CHANGELOG.md)
           echo "start: $start_line"
           echo "end: $end_line"
           # Extract the release notes between the line numbers
@@ -39,10 +49,10 @@ jobs:
         uses: fivetran-catfritz/release-creator@v0.1.0
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          version: ${{ steps.extract_version.outputs.version }}
+          version: ${{ steps.new_version.outputs.version }}
           repo: ${{ github.repository }}
           branch: 'main'
           draft: 'true'
           prerelease: 'false'
-          title: ${{ steps.extract_version.outputs.version }} ${{ github.repository }}
+          title: ${{ steps.new_version.outputs.version }} ${{ github.repository }}
           description: ${{ steps.extract_notes.outputs.description }}
