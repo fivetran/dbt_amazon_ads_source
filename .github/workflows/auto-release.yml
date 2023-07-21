@@ -2,7 +2,7 @@ name: 'auto release'
 on:
   pull_request:
     types:
-      - merged
+      - closed
 
 jobs:
   draft-release:
