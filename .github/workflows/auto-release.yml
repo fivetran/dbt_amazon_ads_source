@@ -6,28 +6,15 @@ on:
 
 jobs:
   draft-release:
+    # if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Extract version and notes
-        id: extract_version_notes
-        run: |
-          # Use appropriate commands to extract version and notes from the changelog file
-          # For example, you might use grep or awk to extract the information.
-          # Save the extracted version and notes as environment variables:
-          echo "Extracting version and notes from changelog..."
-          echo "VERSION=$(grep -oP '(?<=## )\[.*?\]' CHANGELOG.md | head -1)" >> $GITHUB_ENV
-          echo "NOTES=$(awk '/## \[.*?\]/{y=1;next}y' CHANGELOG.md | head -1)" >> $GITHUB_ENV
-        
-      - name: Draft release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ env.VERSION }}
-          release_name: ${{ env.VERSION }}
-          body: ${{ env.NOTES }}
-          draft: true
-          prerelease: false
-        env:
+    - uses: actions/checkout@v3
+    - name: Create a release
+      uses: action-pack/github-release@v2
+      env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      with:
+        tag: MyReleaseTag
+        title: MyReleaseTitle
+        body: MyReleaseMessage
