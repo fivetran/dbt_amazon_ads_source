@@ -34,8 +34,8 @@ jobs:
         id: extract_notes
         run: |
           # Use awk to extract the line numbers of the start and end headings
-          start_line=$(awk "/^# ${{ steps.new_version.outputs.version }}.*/{print NR+1; exit}" CHANGELOG.md)
-          end_line=$(awk "/^# ${{ steps.current_version.outputs.version }}.*/{print NR-1; exit}" CHANGELOG.md)
+          start_line=$(awk "/^# .*${{ steps.new_version.outputs.version }}/{print NR+1; exit}" CHANGELOG.md)
+          end_line=$(awk "/^# .*${{ steps.current_version.outputs.version }}/{print NR-1; exit}" CHANGELOG.md)
           echo "start: $start_line"
           echo "end: $end_line"
           # Extract the release notes between the line numbers
