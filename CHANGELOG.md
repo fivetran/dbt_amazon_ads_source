@@ -1,4 +1,4 @@
-# dbt_amazon_ads_source v0.UPDATE.UPDATE
+# dbt_amazon_ads_source v0.2.0
 
  ## Under the Hood:
 
