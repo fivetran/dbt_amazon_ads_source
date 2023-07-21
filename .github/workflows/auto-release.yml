@@ -52,6 +52,14 @@ jobs:
           echo "Formatted release notes: $FORMATTED_NOTES"
           echo "::set-output name=formatted_notes::$FORMATTED_NOTES"
 
+      - name: Get Repository Name
+        id: repo_name
+        run: |
+          # Use basename to get the repository name without the owner
+          REPO_NAME=$(basename "${{ github.repository }}")
+          echo "Repository Name: $REPO_NAME"
+          echo "::set-output name=repo_name::$REPO_NAME"
+
       - name: Create Release
         uses: fivetran-catfritz/release-creator@v0.1.0
         with:
@@ -61,5 +69,5 @@ jobs:
           branch: 'main'
           draft: 'true'
           prerelease: 'false'
-          title: ${{ steps.new_version.outputs.version }} ${{ github.repository }}
+          title: ${{ steps.new_version.outputs.version }} ${{ steps.repo_name.outputs.repo_name }}
           description: ${{ steps.format_notes.outputs.formatted_notes }}
