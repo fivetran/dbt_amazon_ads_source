@@ -28,11 +28,11 @@ jobs:
           END_HEADING="End Heading"
           
           # Use awk to extract the line numbers of the start and end headings
-          start_line=$(awk "/^## ${START_HEADING}/{print NR+1; exit}" CHANGELOG.md)
-          end_line=$(awk "/^## ${END_HEADING}/{print NR-1; exit}" CHANGELOG.md)
+          start_line=$(awk "/^# ${START_HEADING}/{print NR+1; exit}" CHANGELOG.md)
+          end_line=$(awk "/^# ${END_HEADING}/{print NR-1; exit}" CHANGELOG.md)
           
           # Extract the release notes between the line numbers
-          sed -n "${start_line},${end_line}p" CHANGELOG.md > extracted_notes.txt
+          awk -v start_line="$start_line" -v end_line="$end_line" 'NR >= start_line && NR <= end_line' CHANGELOG.md > extracted_notes.txt
           
           NOTES=$(cat extracted_notes.txt)
           echo "Extracted release notes: $NOTES"
