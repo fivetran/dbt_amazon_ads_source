@@ -4,27 +4,29 @@ on:
     types:
       - closed
 
-permissions:
-  contents: write
-
-# on:
-#   push:
-#     tags:
-#       - v[0-9]+.*
-
 jobs:
-  create-release:
-    # if: github.event.pull_request.merged
+  update:
     runs-on: ubuntu-latest
+    name: Create a release
     steps:
       - uses: actions/checkout@v3
-      - uses: taiki-e/create-gh-release-action@v1
+      
+      - name: Extract version from changelog
+        id: extract_version
+        run: |
+          # Use appropriate commands to extract the version number from the changelog file
+          # For example, you can use grep or awk to extract the version from the first row.
+          VERSION=$(grep -oP 'v[0-9]+.*' CHANGELOG.md | head -1)
+          echo "Extracted version: $VERSION"
+          echo "::set-output name=version::$VERSION"
+          
+      - name: Create Release
+        uses: alice-biometrics/release-creator/@v1.0.5
         with:
-          changelog: CHANGELOG.md
-          draft: true
-          # (Optional) Format of title.
-          # [default value: $tag]
-          # [possible values: variables $tag, $version, and any string]
-          title: $version ${{ github.repository }}
-          # (Required) GitHub token for creating GitHub Releases.
-          token: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          version: ${{ steps.extract_version.outputs.version }}
+          description: 'This is an awesome version :ok_hand:'
+          repo: ${{ github.repository }}
+          branch: 'main'
+          draft: 'true'
+          prerelease: 'false'
