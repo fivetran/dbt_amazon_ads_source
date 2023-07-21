@@ -18,8 +18,8 @@ jobs:
             import github.Repository
             repo = Repository(github.context.repo)
             changelog = repo.get_contents('CHANGELOG.md').content
-            new_version = changelog.splitlines()[0]
-            notes = changelog.splitlines()[1:]
+            new_version = changelog.splitlines()[0][5]
+            notes = changelog.splitlines()[1:5]
 
       - name: Create Release
         uses: release-drafter/release-drafter@v1
