@@ -21,7 +21,7 @@ jobs:
           echo "::set-output name=version::$VERSION"
           
       - name: Create Release
-        uses: alice-biometrics/release-creator/@v1.0.5
+        uses: fivetran-catfritz/release-creator@v0.1.0
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           version: ${{ steps.extract_version.outputs.version }}
@@ -30,3 +30,4 @@ jobs:
           branch: 'main'
           draft: 'true'
           prerelease: 'false'
+          title: ${{ steps.extract_version.outputs.version }} ${{ github.repository }}
