@@ -4,17 +4,27 @@ on:
     types:
       - closed
 
+permissions:
+  contents: write
+
+# on:
+#   push:
+#     tags:
+#       - v[0-9]+.*
+
 jobs:
-  draft-release:
-    if: github.event.pull_request.merged
+  create-release:
+    # if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Create a release
-      uses: action-pack/github-release@v2
-      env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      with:
-        tag: MyReleaseTag
-        title: MyReleaseTitle
-        body: MyReleaseMessage
+      - uses: actions/checkout@v3
+      - uses: taiki-e/create-gh-release-action@v1
+        with:
+          changelog: CHANGELOG.md
+          draft: true
+          # (Optional) Format of title.
+          # [default value: $tag]
+          # [possible values: variables $tag, $version, and any string]
+          title: $version ${{ github.repository }}
+          # (Required) GitHub token for creating GitHub Releases.
+          token: ${{ secrets.GH_TOKEN }}
