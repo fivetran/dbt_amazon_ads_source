@@ -48,7 +48,7 @@ jobs:
         id: format_notes
         run: |
           # Replace newline characters with appropriate line breaks
-          FORMATTED_NOTES=$(sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\n/g' extracted_notes.txt)
+          FORMATTED_NOTES=$(sed -e ':a' -e 'N' -e '$!ba' -e 's/\\/\\\\/g' -e 's/"/\\"/g' -e 's/\n/\\n/g' extracted_notes.txt)
           echo "Formatted release notes: $FORMATTED_NOTES"
           echo "::set-output name=formatted_notes::$FORMATTED_NOTES"
 
