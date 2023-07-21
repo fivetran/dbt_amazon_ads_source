@@ -39,10 +39,18 @@ jobs:
           echo "end: $end_line"
           # Extract the release notes between the line numbers
           awk -v start_line="$start_line" -v end_line="$end_line" 'NR >= start_line && NR <= end_line' CHANGELOG.md > extracted_notes.txt
-          echo "::set-output name=notes_file::$(cat extracted_notes.txt)"
+          echo "::set-output name=notes::$(cat extracted_notes.txt)"
           # NOTES=$(cat extracted_notes.txt)
           # echo "Extracted release notes: $NOTES"
           # echo "description=$NOTES" >> $GITHUB_OUTPUT
+
+      - name: Format release notes for description
+        id: format_notes
+        run: |
+          # Replace newline characters with appropriate line breaks
+          FORMATTED_NOTES=$(sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\n/g' extracted_notes.txt)
+          echo "Formatted release notes: $FORMATTED_NOTES"
+          echo "::set-output name=formatted_notes::$FORMATTED_NOTES"
 
       - name: Create Release
         uses: fivetran-catfritz/release-creator@v0.1.0
@@ -54,4 +62,4 @@ jobs:
           draft: 'true'
           prerelease: 'false'
           title: ${{ steps.new_version.outputs.version }} ${{ github.repository }}
-          description: ${{ steps.extract_notes.outputs.notes_file }}
+          description: ${{ steps.extract_notes.outputs.formatted_notes }}
