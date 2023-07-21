@@ -39,7 +39,7 @@ jobs:
             found = 1
             next
           }
-        ' CHANGELOG.md > extracted_notes.txt
+          ' CHANGELOG.md > extracted_notes.txt
           NOTES=$(cat extracted_notes.txt)
           echo "Extracted release notes: $NOTES"
           echo "description=$NOTES" >> $GITHUB_OUTPUT
