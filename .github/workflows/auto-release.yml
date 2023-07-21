@@ -20,7 +20,7 @@ jobs:
           echo "Extracted version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-    name: Extract release notes from changelog
+      - name: Extract release notes from changelog
         id: extract_notes
         run: |
           # Use awk to extract the release notes between the first two headings
@@ -45,4 +45,4 @@ jobs:
           draft: 'true'
           prerelease: 'false'
           title: ${{ steps.extract_version.outputs.version }} ${{ github.repository }}
-          description: ${{ steps.extract_version.outputs.description }}
+          description: ${{ steps.extract_notes.outputs.description }}
