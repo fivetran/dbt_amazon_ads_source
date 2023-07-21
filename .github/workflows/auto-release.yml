@@ -24,10 +24,10 @@ jobs:
         id: current_version
         run: |
           # Get the latest published release using the GitHub REST API
-          LATEST_RELEASE=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/latest" | jq -r '.tag_name')
-          echo "Latest published release tag: $LATEST_RELEASE"
-          echo "Current version: $LATEST_RELEASE"
-          echo "current_version=$LATEST_RELEASE" >> $GITHUB_OUTPUT
+          CURRENT_VERSION=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/latest" | jq -r '.tag_name')
+          echo "Latest published release tag: $CURRENT_VERSION"
+          echo "Current version: $CURRENT_VERSION"
+          echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
       - name: Extract release notes from changelog
         id: extract_notes
