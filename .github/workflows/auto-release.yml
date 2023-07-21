@@ -1,0 +1,31 @@
+name: 'auto release'
+on:
+  pull_request:
+    types:
+      - merged
+    branches:
+      - main
+
+jobs:
+  draft-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Code
+        uses: actions/checkout@v2
+
+      - name: Read Changelog
+        uses: actions/github-script@v3
+        with:
+          script: |
+            import github.Repository
+            repo = Repository(github.context.repo)
+            changelog = repo.get_contents('CHANGELOG.md').content
+            new_version = changelog.splitlines()[0]
+            notes = changelog.splitlines()[1:]
+
+      - name: Create Release
+        uses: release-drafter/release-drafter@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          tag_name: ${{ new_version }}
+          body: ${{ notes }}
