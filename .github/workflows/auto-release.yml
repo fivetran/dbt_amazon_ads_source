@@ -24,11 +24,10 @@ jobs:
         id: extract_notes
         run: |
           # Use awk to extract the release notes between the first two headings
-          # Use awk to extract the release notes between the custom headings
           awk -v start_heading="$START_HEADING" -v end_heading="$END_HEADING" '
-            $0 ~ ("^## " start_heading) { found=1 }
+            $0 ~ ("^# " start_heading) { found=1 }
             found { print }
-            $0 ~ ("^## " end_heading) { exit }
+            $0 ~ ("^# " end_heading) { exit }
           ' CHANGELOG.md > extracted_notes.txt
           
           NOTES=$(cat extracted_notes.txt)
