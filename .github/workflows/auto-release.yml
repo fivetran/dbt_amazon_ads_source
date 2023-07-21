@@ -25,11 +25,21 @@ jobs:
         run: |
           # Use awk to extract the release notes between the first two headings
           awk -v start_heading="$START_HEADING" -v end_heading="$END_HEADING" '
-            $0 ~ ("^# " start_heading) { found=1 }
-            found { print }
-            $0 ~ ("^# " end_heading) { exit }
-          ' CHANGELOG.md > extracted_notes.txt
-          
+          /^#/ {
+            if (found && $0 !~ end_heading) {
+              exit
+            } else {
+              found = 0
+            }
+          }
+          found {
+            print
+          }
+          $0 ~ ("^# " start_heading) {
+            found = 1
+            next
+          }
+        ' CHANGELOG.md > extracted_notes.txt
           NOTES=$(cat extracted_notes.txt)
           echo "Extracted release notes: $NOTES"
           echo "description=$NOTES" >> $GITHUB_OUTPUT
