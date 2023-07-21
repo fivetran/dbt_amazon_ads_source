@@ -6,6 +6,7 @@ on:
 
 jobs:
   update:
+    # if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     name: Create a release
     steps:
@@ -18,7 +19,7 @@ jobs:
           # For example, you can use grep or awk to extract the version from the first row.
           VERSION=$(grep -oP 'v[0-9]+.*' CHANGELOG.md | head -1)
           echo "Extracted version: $VERSION"
-          echo "::set-output name=version::$VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
           
       - name: Create Release
         uses: fivetran-catfritz/release-creator@v0.1.0
