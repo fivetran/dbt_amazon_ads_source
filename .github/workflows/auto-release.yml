@@ -15,6 +15,6 @@ jobs:
         run: |
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GH_TOKEN }} \
+            -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
             -d "{}" \  # Empty payload, no variables to send
             "https://api.github.com/repos/fivetran-catfritz/release-creator/dispatches"
