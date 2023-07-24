@@ -8,66 +8,11 @@ jobs:
   update:
     # if: github.event.pull_request.merged
     runs-on: ubuntu-latest
-    name: Create a release
+    name: Trigger Release Job
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Extract new version from changelog
-        id: new_version
-        run: |
-          # Extract the version number from the changelog file
-          VERSION=$(grep -oP 'v[0-9]+.*' CHANGELOG.md | head -1 | tr -d '[:space:]')
-          echo "Extracted version: $VERSION"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
-      - name: Get current version from Github
-        id: current_version
-        run: |
-          # Get the latest published release using the GitHub REST API
-          CURRENT_VERSION=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/latest" | jq -r '.tag_name')
-          echo "Latest published release tag: $CURRENT_VERSION"
-          echo "Current version: $CURRENT_VERSION"
-          echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
-
-      - name: Extract release notes from changelog
-        id: extract_notes
-        run: |
-          # Use awk to extract the line numbers of the start and end headings
-          start_line=$(awk "/^# .*${{ steps.new_version.outputs.version }}/{print NR+1; exit}" CHANGELOG.md)
-          end_line=$(awk "/^# .*${{ steps.current_version.outputs.version }}/{print NR-1; exit}" CHANGELOG.md)
-          echo "start: $start_line"
-          echo "end: $end_line"
-          # Extract the release notes between the line numbers
-          awk -v start_line="$start_line" -v end_line="$end_line" 'NR >= start_line && NR <= end_line' CHANGELOG.md > extracted_notes.txt
-          echo "::set-output name=notes::$(cat extracted_notes.txt)"
-          # NOTES=$(cat extracted_notes.txt)
-          # echo "Extracted release notes: $NOTES"
-          # echo "description=$NOTES" >> $GITHUB_OUTPUT
-
-      - name: Format release notes for description
-        id: format_notes
-        run: |
-          # Replace newline characters with appropriate line breaks
-          FORMATTED_NOTES=$(sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\n/g' extracted_notes.txt)
-          echo "Formatted release notes: $FORMATTED_NOTES"
-          echo "::set-output name=formatted_notes::$FORMATTED_NOTES"
-
-      - name: Get Repository Name
-        id: repo_name
-        run: |
-          # Use basename to get the repository name without the owner
-          REPO_NAME=$(basename "${{ github.repository }}")
-          echo "Repository Name: $REPO_NAME"
-          echo "::set-output name=repo_name::$REPO_NAME"
-
-      - name: Create Release
+      - name: Trigger Release
         uses: fivetran-catfritz/release-creator@v0.1.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          version: ${{ steps.new_version.outputs.version }}
-          repo: ${{ github.repository }}
-          branch: 'main'
-          draft: 'true'
-          prerelease: 'false'
-          title: ${{ steps.new_version.outputs.version }} ${{ steps.repo_name.outputs.repo_name }}
-          description: ${{ steps.format_notes.outputs.formatted_notes }}
+          token: ${{ secrets.GH_TOKEN }}
+          repository: fivetran-catfritz/release-creator
+          event-type: trigger_release
