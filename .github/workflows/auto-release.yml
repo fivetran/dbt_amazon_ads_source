@@ -5,7 +5,7 @@ on:
       - closed
 
 jobs:
-trigger_release_job:
+  trigger_release_job:
     # if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     name: Trigger Release Job
@@ -20,4 +20,4 @@ trigger_release_job:
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token $REPO_ACCESS_TOKEN" \
             -d "{}" \  # Empty payload, no variables to send
-            "https://api.github.com/repos/your-username/my-shared-workflow/dispatches"
+            "https://api.github.com/repos/fivetran-catfritz/release-creator/dispatches"
