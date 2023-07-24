@@ -8,5 +8,5 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    uses: fivetran-catfritz/release-creator/.github/workflows/auto-release.yml@main
+    uses: fivetran-catfritz/auto-releaser/.github/workflows/auto-release.yml@main
     secrets: inherit
