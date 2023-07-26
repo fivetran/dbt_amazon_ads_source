@@ -3,11 +3,11 @@ on:
   pull_request:
     types:
       - closed
-    # branches:
-    #   - main
+    branches:
+      - main
 
 jobs:
   call-workflow-passing-data:
-    # if: github.event.pull_request.merged
+    if: github.event.pull_request.merged
     uses: fivetran-catfritz/auto-releaser/.github/workflows/auto-release.yml@main
-    # secrets: inherit
+    secrets: inherit
