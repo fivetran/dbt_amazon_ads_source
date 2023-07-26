@@ -21,22 +21,21 @@ fields as (
 final as (
     
     select 
-        bidding_strategy,
-        campaign_type,
-        creation_date,
-        daily_budget,
-        end_date,
-        id as campaign_id,
+        cast(id as {{ dbt.type_string() }}) as campaign_id,
         last_updated_date,
+        bidding_strategy,
+        creation_date,
+        end_date,
         name as campaign_name,
-        placement,
-        portfolio_id,
-        premium_bid_adjustment,
-        profile_id,
+        cast(portfolio_id as {{ dbt.type_string() }}) as portfolio_id,
+        cast(profile_id as {{ dbt.type_string() }}) as profile_id,
         serving_status,
         start_date,
         state,
         targeting_type,
+        budget,
+        budget_type,
+        effective_budget,
         row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record
     from fields
 )

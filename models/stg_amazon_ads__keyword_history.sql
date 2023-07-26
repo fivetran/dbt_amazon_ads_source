@@ -21,17 +21,18 @@ fields as (
 final as (
     
     select 
-        ad_group_id,
+        cast(id as {{ dbt.type_string() }}) as keyword_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         bid,
-        campaign_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
         creation_date,
-        id as keyword_id,
         keyword_text,
         last_updated_date,
         match_type,
         native_language_keyword,
         serving_status,
         state,
+        native_language_locale,
         row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record
     from fields
 )

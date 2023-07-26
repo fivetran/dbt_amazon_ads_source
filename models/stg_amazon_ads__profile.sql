@@ -21,8 +21,8 @@ fields as (
 final as (
     
     select 
-        id as profile_id,
-        account_id,
+        cast(id as {{ dbt.type_string() }}) as profile_id,
+        cast(account_id as {{ dbt.type_string() }}) as account_id,
         account_marketplace_string_id,
         account_name,
         account_sub_type,

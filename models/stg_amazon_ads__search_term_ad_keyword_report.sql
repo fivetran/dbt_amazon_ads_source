@@ -21,18 +21,18 @@ fields as (
 final as (
     
     select 
-        ad_group_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         ad_keyword_status,
         campaign_budget_amount,
         campaign_budget_currency_code,
         campaign_budget_type,
-        campaign_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
         clicks,
         cost,
         date as date_day,
         impressions,
         keyword_bid,
-        keyword_id,
+        cast(keyword_id as {{ dbt.type_string() }}) as keyword_id,
         search_term,
         targeting
 
