@@ -1,3 +1,4 @@
+UPDATE TESTS!!! (delete line when done.)
 version: 2
 
 models:
@@ -9,6 +10,8 @@ models:
             - ad_group_id
             - last_updated_date
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
         tests:
@@ -38,6 +41,8 @@ models:
             - ad_group_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
@@ -61,6 +66,8 @@ models:
             - ad_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_id
@@ -96,6 +103,8 @@ models:
             - campaign_id
             - last_updated_date
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
         tests:
@@ -139,6 +148,8 @@ models:
             - campaign_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: "{{ doc('report_date') }}"
       - name: campaign_id
@@ -174,6 +185,8 @@ models:
             - keyword_id
             - last_updated_date
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: keyword_id
         description: "{{ doc('keyword_id') }}"
         tests:
@@ -211,6 +224,8 @@ models:
             - portfolio_id
             - last_updated_date
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: portfolio_id
         description: "{{ doc('portfolio_id') }}"
         tests:
@@ -250,6 +265,8 @@ models:
             - ad_id
             - last_updated_date
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: ad_id
         description: "{{ doc('ad_id') }}"
         tests:
@@ -276,6 +293,8 @@ models:
   - name: stg_amazon_ads__profile
     description: Each record represents a profile. Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have one profile associated with each marketplace.
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: _fivetran_deleted
         description: "{{ doc('_fivetran_deleted') }}"
       - name: profile_id
@@ -311,6 +330,8 @@ models:
             - keyword_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id
@@ -353,6 +374,8 @@ models:
             - keyword_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: "{{ doc('report_date') }}"
       - name: ad_group_id

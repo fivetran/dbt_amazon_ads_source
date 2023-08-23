@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('ad_reporting__amazon_ads_enabled', True)) }}
 with base as (
 
@@ -14,12 +16,19 @@ fields as (
                 staging_columns=get_ad_group_level_report_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='amazon_ads_union_schemas', 
+            union_database_variable='amazon_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         campaign_bidding_strategy,
         clicks,
