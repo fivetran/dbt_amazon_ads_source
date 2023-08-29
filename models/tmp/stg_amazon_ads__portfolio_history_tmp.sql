@@ -1,3 +1,5 @@
+{{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__amazon_ads_enabled','amazon_ads__portfolio_history_enabled'])) }}
+
 {{
     fivetran_utils.union_data(
         table_identifier='portfolio_history', 
