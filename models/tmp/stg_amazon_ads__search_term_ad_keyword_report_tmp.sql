@@ -1,4 +1,4 @@
-{{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
+{{ config(enabled=var('ad_reporting__amazon_ads_enabled', True)) }}
 
 {{
     fivetran_utils.union_data(
