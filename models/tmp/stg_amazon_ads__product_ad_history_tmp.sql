@@ -1,3 +1,5 @@
+{{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
+
 {{
     fivetran_utils.union_data(
         table_identifier='product_ad_history', 
