@@ -32,7 +32,7 @@ If you  are **not** using the [Amazon Ads transformation package](https://github
 ```yaml
 packages:
   - package: fivetran/amazon_ads_source
-    version: [">=0.2.0", "<0.3.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ## Step 3: Define database and schema variables
