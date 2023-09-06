@@ -7,7 +7,7 @@
         schema_variable='amazon_ads_schema', 
         default_database=target.database,
         default_schema='amazon_ads',
-        default_variable='targeting_keyword_report_source',
+        default_variable='targeting_keyword_report',
         union_schema_variable='amazon_ads_union_schemas',
         union_database_variable='amazon_ads_union_databases'
     )
