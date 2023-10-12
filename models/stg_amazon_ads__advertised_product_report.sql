@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_advertised_product_report_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='amazon_ads_union_schemas', 
+            union_database_variable='amazon_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         cast(ad_id as {{ dbt.type_string() }}) as ad_id,
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         advertised_asin,

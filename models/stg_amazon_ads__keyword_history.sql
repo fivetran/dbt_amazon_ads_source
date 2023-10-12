@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_keyword_history_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='amazon_ads_union_schemas', 
+            union_database_variable='amazon_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         cast(id as {{ dbt.type_string() }}) as keyword_id,
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         bid,
@@ -33,7 +40,7 @@ final as (
         serving_status,
         state,
         native_language_locale,
-        row_number() over (partition by id order by last_updated_date desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by last_updated_date desc) = 1 as is_most_recent_record
     from fields
 )
 

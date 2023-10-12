@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_profile_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='amazon_ads_union_schemas', 
+            union_database_variable='amazon_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         cast(id as {{ dbt.type_string() }}) as profile_id,
         cast(account_id as {{ dbt.type_string() }}) as account_id,
         account_marketplace_string_id,
