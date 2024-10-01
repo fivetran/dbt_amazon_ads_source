@@ -13,6 +13,8 @@
     {"name": "cost", "datatype": dbt.type_float()},
     {"name": "date", "datatype": "date"},
     {"name": "impressions", "datatype": dbt.type_int()},
+    {"name": "purchases_30_d", "datatype": dbt.type_int()},
+    {"name": "sales_30_d", "datatype": dbt.type_float()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('amazon_ads__campaign_passthrough_metrics')) }}

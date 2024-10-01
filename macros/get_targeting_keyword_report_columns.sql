@@ -15,7 +15,9 @@
     {"name": "keyword_id", "datatype": dbt.type_int()},
     {"name": "keyword_type", "datatype": dbt.type_string()},
     {"name": "match_type", "datatype": dbt.type_string()},
-    {"name": "targeting", "datatype": dbt.type_string()}
+    {"name": "targeting", "datatype": dbt.type_string()},
+    {"name": "purchases_30_d", "datatype": dbt.type_int()},
+    {"name": "sales_30_d", "datatype": dbt.type_float()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('amazon_ads__targeting_keyword_passthrough_metrics')) }}

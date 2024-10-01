@@ -32,8 +32,9 @@ final as (
         clicks,
         cost,
         date as date_day,
-        impressions
-
+        impressions,
+        purchases_30_d,
+        sales_30_d
         {{ fivetran_utils.fill_pass_through_columns('amazon_ads__ad_group_passthrough_metrics') }}
     from fields
 )
