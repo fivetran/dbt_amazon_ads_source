@@ -1,7 +1,7 @@
 # dbt_amazon_ads_source v0.4.0
 [PR #21](https://github.com/fivetran/dbt_amazon_ads_source/pull/21) includes the following updates:
 
-## Feature update: Conversion Support
+## Feature update: Conversion support
 - We have added conversion metrics to the following staging models:
   - ad_group_level_report
   - advertised_product_report
@@ -14,8 +14,8 @@
   - `sales_30_d`: Total value of sales occurring within 30 days of an ad click.
 
 ## Under the hood: Backwards compatibility
-- In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_google_ads_source?tab=readme-ov-file#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
-- This was done via the new `google_ads_fill_pass_through_columns` and `google_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
+- In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_amazon_ads_source?tab=readme-ov-file#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
+- This was done via the new `amazon_ads_fill_pass_through_columns` and `amazon_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
 
 > The above new field additions are 🚨 **breaking changes** 🚨 for users who were not already bringing in conversion fields via passthrough columns.
 
