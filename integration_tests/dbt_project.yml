@@ -20,6 +20,10 @@ vars:
     amazon_ads_targeting_keyword_report_identifier: "targeting_keyword_report_data"
     amazon_ads_search_term_ad_keyword_report_identifier: "search_term_ad_keyword_report_data"
 
+  # amazon_ads__campaign_passthrough_metrics:
+  #     - name: sales_7_d
+  #     - name: purchases_30_d 
+
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
