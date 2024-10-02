@@ -42,7 +42,9 @@ final as (
         cast(keyword_id as {{ dbt.type_string() }}) as keyword_id,
         keyword_type,
         match_type,
-        targeting
+        targeting,
+        purchases_30_d,
+        sales_30_d
 
         {{ amazon_ads_fill_pass_through_columns(pass_through_fields=var('amazon_ads__targeting_keyword_passthrough_metrics'), except=['purchases_30_d', 'sales_30_d']) }}
 
