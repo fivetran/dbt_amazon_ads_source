@@ -35,7 +35,9 @@ final as (
         impressions,
         purchases_30_d,
         sales_30_d
-        {{ fivetran_utils.fill_pass_through_columns('amazon_ads__ad_group_passthrough_metrics') }}
+        
+        {{ amazon_ads_fill_pass_through_columns(pass_through_fields=var('amazon_ads__ad_group_passthrough_metrics'), except=['purchases_30_d', 'sales_30_d']) }}
+
     from fields
 )
 
