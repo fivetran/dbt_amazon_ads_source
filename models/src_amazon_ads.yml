@@ -56,6 +56,10 @@ sources:
             description: "{{ doc('impressions') }}"
           - name: cost
             description: "{{ doc('cost') }}"
+          - name: purchases_30_d
+            description: "{{ doc('purchases_30_d') }}" 
+          - name: sales_30_d
+            description: "{{ doc('sales_30_d') }}"
 
       - name: advertised_product_report
         description: Advertised product reports contain performance data for products that are advertised as part of your campaigns.
@@ -87,6 +91,10 @@ sources:
             description: "{{ doc('impressions') }}"
           - name: cost
             description: "{{ doc('cost') }}"
+          - name: purchases_30_d
+            description: "{{ doc('purchases_30_d') }}" 
+          - name: sales_30_d
+            description: "{{ doc('sales_30_d') }}"
 
       - name: campaign_history
         description: Each record represents a campaign in Amazon Ads.
@@ -155,6 +163,10 @@ sources:
             description: "{{ doc('campaign_budget_type') }}"
           - name: campaign_rule_based_budget_amount
             description: "{{ doc('campaign_rule_based_budget_amount') }}"
+          - name: purchases_30_d
+            description: "{{ doc('purchases_30_d') }}" 
+          - name: sales_30_d
+            description: "{{ doc('sales_30_d') }}"
 
       - name: keyword_history
         description: Each record represents a keyword in Amazon Ads.
@@ -314,6 +326,10 @@ sources:
             description: "{{ doc('impressions') }}"
           - name: cost
             description: "{{ doc('cost') }}"
+          - name: purchases_30_d
+            description: "{{ doc('purchases_30_d') }}" 
+          - name: sales_30_d
+            description: "{{ doc('sales_30_d') }}"
 
       - name: search_term_ad_keyword_report
         description: Search term reports contain search term performance metrics broken down by targeting expressions and keywords. 
@@ -347,3 +363,7 @@ sources:
             description: "{{ doc('search_term') }}"
           - name: targeting
             description: "{{ doc('targeting') }}"
+          - name: purchases_30_d
+            description: "{{ doc('purchases_30_d') }}" 
+          - name: sales_30_d
+            description: "{{ doc('sales_30_d') }}"

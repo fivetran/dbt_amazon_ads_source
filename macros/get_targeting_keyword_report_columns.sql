@@ -15,10 +15,13 @@
     {"name": "keyword_id", "datatype": dbt.type_int()},
     {"name": "keyword_type", "datatype": dbt.type_string()},
     {"name": "match_type", "datatype": dbt.type_string()},
-    {"name": "targeting", "datatype": dbt.type_string()}
+    {"name": "targeting", "datatype": dbt.type_string()},
+    {"name": "purchases_30_d", "datatype": dbt.type_int()},
+    {"name": "sales_30_d", "datatype": dbt.type_float()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('amazon_ads__targeting_keyword_passthrough_metrics')) }}
+{# Add backwards compatibility if conversion metrics were added via passthrough columns prior to them being brought in by default #}
+{{ amazon_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('amazon_ads__targeting_keyword_passthrough_metrics'), except_fields=['purchases_30_d', 'sales_30_d']) }}
 
 {{ return(columns) }}
 
