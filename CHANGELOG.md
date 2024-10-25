@@ -18,7 +18,7 @@
 - In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_amazon_ads_source?tab=readme-ov-file#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
 - This was done via the new `amazon_ads_fill_pass_through_columns` and `amazon_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
 
-> The above new field additions are 🚨 **breaking changes** 🚨 for users who were not already bringing in conversion fields via passthrough columns.
+> The above new field additions are **breaking changes** for users who were not already bringing in conversion fields via passthrough columns.
 
 ## Contributors
 - [Seer Interactive](https://www.seerinteractive.com/?utm_campaign=Fivetran%20%7C%20Models&utm_source=Fivetran&utm_medium=Fivetran%20Documentation)
