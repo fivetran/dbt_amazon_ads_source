@@ -1,23 +1,27 @@
 # dbt_amazon_ads_source v0.4.0
 [PR #21](https://github.com/fivetran/dbt_amazon_ads_source/pull/21) includes the following updates:
 
-## Feature update: Conversion support
-- We have added conversion metrics to the following staging models:
-  - ad_group_level_report
-  - advertised_product_report
-  - campaign_level_report
-  - targeting_keyword_report
-  - search_term_ad_keyword_report
+## Feature Update: Conversion support
+- We have added conversion metrics by default to the following staging models:
+  - `stg_amazon_ads__ad_group_level_report`
+  - `stg_amazon_ads__advertised_product_report`
+  - `stg_amazon_ads__campaign_level_report`
+  - `stg_amazon_ads__targeting_keyword_report`
+  - `stg_amazon_ads__search_term_ad_keyword_report`
 
 - The conversion metrics are the following:
   - `purchases_30_d`: Number of attributed conversion events occurring within 30 days of an ad click.
   - `sales_30_d`: Total value of sales occurring within 30 days of an ad click.
+- To bring in other conversion fields (`purchases_same_sku_30_d`, `sales_14_d`, etc.), please refer to our [passthrough column variables](https://github.com/fivetran/dbt_amazon_ads_source?tab=readme-ov-file#passing-through-additional-metrics).
 
 ## Under the hood: Backwards compatibility
 - In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_amazon_ads_source?tab=readme-ov-file#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
 - This was done via the new `amazon_ads_fill_pass_through_columns` and `amazon_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
 
 > The above new field additions are 🚨 **breaking changes** 🚨 for users who were not already bringing in conversion fields via passthrough columns.
+
+## Contributors
+- [Seer Interactive](https://www.seerinteractive.com/?utm_campaign=Fivetran%20%7C%20Models&utm_source=Fivetran&utm_medium=Fivetran%20Documentation)
 
 # dbt_amazon_ads_source v0.3.0
 [PR #17](https://github.com/fivetran/dbt_amazon_ads_source/pull/17) includes the following updates:
