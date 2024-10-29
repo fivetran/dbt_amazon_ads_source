@@ -1,13 +1,13 @@
 config-version: 2
 
 name: 'amazon_ads_source_integration_tests'
-version: '0.3.0'
+version: '0.4.0'
 
 profile: 'integration_tests' 
 
 vars:
   amazon_ads_source:
-    amazon_ads_schema: amazon_ads_source_integration_tests_02
+    amazon_ads_schema: amazon_ads_source_integration_tests_03
     amazon_ads_ad_group_history_identifier: "ad_group_history_data"
     amazon_ads_ad_group_level_report_identifier: "ad_group_level_report_data"
     amazon_ads_advertised_product_report_identifier: "advertised_product_report_data"
@@ -19,6 +19,12 @@ vars:
     amazon_ads_keyword_history_identifier: "keyword_history_data"
     amazon_ads_targeting_keyword_report_identifier: "targeting_keyword_report_data"
     amazon_ads_search_term_ad_keyword_report_identifier: "search_term_ad_keyword_report_data"
+
+  amazon_ads__campaign_passthrough_metrics:
+      - name: sales_7_d
+      - name: purchases_30_d 
+        alias: purchases_alias
+      - name: purchases_14_d
 
 dispatch:
   - macro_namespace: dbt_utils
@@ -32,7 +38,3 @@ seeds:
       campaign_budget_amount: "float"
       click_through_rate: "float"
       keyword_bid: "float"
-        
-dispatch:
-  - macro_namespace: dbt_utils
-    search_order: ['spark_utils', 'dbt_utils']

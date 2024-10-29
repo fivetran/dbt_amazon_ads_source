@@ -39,9 +39,12 @@ final as (
         clicks,
         cost,
         date as date_day,
-        impressions
+        impressions,
+        purchases_30_d,
+        sales_30_d
+        
+        {{ amazon_ads_fill_pass_through_columns(pass_through_fields=var('amazon_ads__advertised_product_passthrough_metrics'), except=['purchases_30_d', 'sales_30_d']) }}
 
-        {{ fivetran_utils.fill_pass_through_columns('amazon_ads__advertised_product_passthrough_metrics') }}
     from fields
 )
 
