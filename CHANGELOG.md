@@ -1,3 +1,8 @@
+# dbt_amazon_ads_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#23](https://github.com/fivetran/dbt_amazon_ads_source/pull/23))
+
 # dbt_amazon_ads_source v0.4.0
 [PR #21](https://github.com/fivetran/dbt_amazon_ads_source/pull/21) includes the following updates:
 
