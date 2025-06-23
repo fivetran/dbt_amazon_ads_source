@@ -8,12 +8,12 @@ sources:
     loader: Fivetran
     loaded_at_field: _fivetran_synced
 
-    freshness: 
-      warn_after: {count: 48, period: hour}
-      error_after: {count: 168, period: hour}
     config:
-          enabled: "{{ var('ad_reporting__amazon_ads_enabled', true) }}"
-
+      enabled: "{{ var('ad_reporting__amazon_ads_enabled', true) }}"
+      freshness: 
+        warn_after: {count: 48, period: hour}
+        error_after: {count: 168, period: hour}
+        
     tables:
       - name: ad_group_history
         description: Each record represents an ad group in Amazon Ads.
