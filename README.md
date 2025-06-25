@@ -1,4 +1,6 @@
-<p align="center">
+# Amazon Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_amazon_ads_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_amazon_ads_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,11 +12,11 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Amazon Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_amazon_ads_source/))
 ## What does this dbt package do?
 - Materializes [Amazon Ads staging tables](https://fivetran.github.io/dbt_amazon_ads_source/#!/overview/amazon_ads_source/models/?g_v=1&g_e=seeds), which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/amazon-ads#schemainformation). These staging tables clean, test, and prepare your Amazon Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/amazon-ads) for analysis by doing the following:
   - Names columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
+    > dbt Core >= 1.9.6 is required to run freshness tests out of the box. See other options [here](https://github.com/fivetran/dbt_amazon_ads_source/blob/main/CHANGELOG.md#breaking-change-for-dbt-core--196).
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Amazon Ads data through the [dbt docs site](https://fivetran.github.io/dbt_amazon_ads_source/).
 - These tables are designed to work simultaneously with our [Amazon Ads transformation package](https://github.com/fivetran/dbt_amazon_ads).
@@ -32,7 +34,7 @@ If you  are **not** using the [Amazon Ads transformation package](https://github
 ```yaml
 packages:
   - package: fivetran/amazon_ads_source
-    version: [">=0.4.0", "<0.5.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.5.0", "<0.6.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables
